@@ -9,7 +9,7 @@ import {
 import FullRoundedButton from '@/src/components/FullRoundedButton';
 import AuthWrapper from '@/src/components/authWrapper';
 import tw from '@/src/lib/tailwind';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -22,25 +22,26 @@ const SignUpSchema = Yup.object().shape({
 });
 
 export default function Index() {
-	const [phone, setPhone] = useState('');
-	const [password, setPassword] = useState('');
 	const [hidePassword, setHidePassword] = useState(true);
+	const router = useRouter();
 	return (
 		<AuthWrapper skippable={true}>
 			<Formik
 				initialValues={{ phone: '', password: '' }}
 				validationSchema={SignUpSchema}
-				onSubmit={values => {
-					console.log(values); // Handle form submission
+				onSubmit={(values, { setSubmitting }) => {
+					console.log(values); // Handle form submission logic here
+					setSubmitting(false); // Ensure Formik knows submission is complete
+					router.push('/auth/sign-in'); // Navigate after submission is complete
 				}}
 			>
 				{({
 					handleChange,
-					handleBlur,
 					handleSubmit,
 					values,
 					errors,
 					touched,
+					setFieldTouched,
 				}) => (
 					<View
 						style={tw`flex flex-col items-center justify-start w-full gap-15 py-4`}
@@ -57,8 +58,8 @@ export default function Index() {
 									keyboardType="phone-pad"
 									value={values.phone}
 									onChangeText={handleChange('phone')}
-									onBlur={handleBlur('phone')}
 									style={tw`flex-1`}
+									onBlur={() => setFieldTouched('phone')}
 								/>
 							</View>
 							{errors.phone && touched.phone && (
@@ -74,9 +75,9 @@ export default function Index() {
 									placeholder="Password"
 									value={values.password}
 									onChangeText={handleChange('password')}
-									onBlur={handleBlur('password')}
 									style={tw`flex-1`}
 									secureTextEntry={hidePassword}
+									onBlur={() => setFieldTouched('password')}
 								/>
 								<TouchableOpacity
 									style={tw`flex px-1 py-3`}
@@ -92,7 +93,7 @@ export default function Index() {
 
 						{/* Submit Button */}
 						<View style={tw`flex flex-col w-full gap-2`}>
-							<FullRoundedButton text="Sign Up" onPress={handleSubmit} />{' '}
+							<FullRoundedButton text="Sign Up" onPress={handleSubmit} />
 							{/* handleSubmit */}
 							<Text style={tw`font-manropeRegular text-base text-center`}>
 								Already have an account?{' '}
