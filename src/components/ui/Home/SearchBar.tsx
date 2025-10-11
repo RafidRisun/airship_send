@@ -10,7 +10,10 @@ export default function SearchBar() {
 			<View
 				style={tw`flex flex-row flex-1 items-center justify-between bg-lightGray rounded-full px-4`}
 			>
-				<TextInput placeholder="Search for food, groceries, etc." />
+				<TextInput
+					placeholder="Search for food, groceries, etc."
+					style={tw`flex-1`}
+				/>
 				<SvgXml xml={iconSearch} />
 			</View>
 			<TouchableOpacity

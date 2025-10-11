@@ -44,7 +44,7 @@ export default function SignIn() {
 					setFieldTouched,
 				}) => (
 					<View
-						style={tw`flex flex-col items-center justify-start w-full gap-15 py-4`}
+						style={tw`flex flex-col items-center justify-start w-full gap-8 py-4`}
 					>
 						<Text style={tw`font-geistSemiBold text-2xl`}>Sign In</Text>
 						<View style={tw`flex flex-col w-full gap-4`}>
@@ -64,41 +64,49 @@ export default function SignIn() {
 							{errors.phone && touched.phone && (
 								<Text style={tw`text-red-500 text-sm`}>{errors.phone}</Text>
 							)}
-							<View
-								style={tw`w-full flex flex-row items-center justify-between gap-2 px-4 py-1 border-2 border-lightGray rounded-xl`}
-							>
-								<SvgXml xml={iconLock} width={18} />
-								<TextInput
-									placeholder="Password"
-									value={values.password}
-									onChangeText={handleChange('password')}
-									style={tw`flex-1`}
-									secureTextEntry={hidePassword}
-									onBlur={() => setFieldTouched('password')}
-								/>
-								<TouchableOpacity
-									style={tw`flex px-1 py-3`}
-									onPress={() => setHidePassword(!hidePassword)}
+							<View style={tw`flex flex-col w-full`}>
+								<View
+									style={tw`w-full flex flex-row items-center justify-between gap-2 px-4 py-1 border-2 border-lightGray rounded-xl`}
 								>
-									<SvgXml xml={hidePassword ? iconVisible : iconInvisible} />
-								</TouchableOpacity>
+									<SvgXml xml={iconLock} width={18} />
+									<TextInput
+										placeholder="Password"
+										value={values.password}
+										onChangeText={handleChange('password')}
+										style={tw`flex-1`}
+										secureTextEntry={hidePassword}
+										onBlur={() => setFieldTouched('password')}
+									/>
+									<TouchableOpacity
+										style={tw`flex px-1 py-3`}
+										onPress={() => setHidePassword(!hidePassword)}
+									>
+										<SvgXml xml={hidePassword ? iconVisible : iconInvisible} />
+									</TouchableOpacity>
+								</View>
+								<View style={tw`flex flex-row justify-end`}>
+									<Link
+										href="/auth/forgot-password"
+										style={tw`text-blue font-manropeMedium text-xs`}
+									>
+										Forgot Password?
+									</Link>
+								</View>
 							</View>
 							{errors.password && touched.password && (
 								<Text style={tw`text-red-500 text-sm`}>{errors.password}</Text>
 							)}
-							<View style={tw`flex flex-row justify-end`}>
-								<Link
-									href="/auth/forgot-password"
-									style={tw`text-blue font-manropeMedium text-xs`}
-								>
-									Forgot Password?
-								</Link>
-							</View>
 						</View>
 						<View style={tw`flex flex-col w-full gap-2`}>
-							<FullRoundedButton text="Sign In" onPress={handleSubmit} />
+							<FullRoundedButton
+								text="Sign In"
+								onPress={() => {
+									//handleSubmit
+									router.push('(tabs)');
+								}}
+							/>
 							<Text style={tw`font-manropeRegular text-base text-center`}>
-								Already have an account?{' '}
+								Dont have an account?{' '}
 								<Link href="/auth" style={tw`text-blue font-manropeBold`}>
 									Sign Up
 								</Link>

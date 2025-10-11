@@ -35,7 +35,7 @@ export default function ForgotPassword() {
 					setFieldTouched,
 				}) => (
 					<View
-						style={tw`flex flex-col items-center justify-start w-full gap-15 py-4`}
+						style={tw`flex flex-col items-center justify-start w-full gap-8 py-4`}
 					>
 						<View
 							style={tw`flex flex-col items-center justify-center w-full px-10 gap-2`}

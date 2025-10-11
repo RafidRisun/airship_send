@@ -29,7 +29,7 @@ export default function NewPassword() {
 				onSubmit={(values, { setSubmitting }) => {
 					console.log(values); // Handle form submission logic here
 					setSubmitting(false); // Ensure Formik knows submission is complete
-					router.push('/auth'); // Navigate after submission is complete
+					router.push('/auth/sign-in'); // Navigate after submission is complete
 				}}
 			>
 				{({
@@ -41,7 +41,7 @@ export default function NewPassword() {
 					setFieldTouched,
 				}) => (
 					<View
-						style={tw`flex flex-col items-center justify-start w-full gap-15 py-4`}
+						style={tw`flex flex-col items-center justify-start w-full gap-8 py-4`}
 					>
 						<Text style={tw`font-geistSemiBold text-2xl`}>New Password</Text>
 						<View style={tw`flex flex-col w-full gap-4`}>
@@ -94,7 +94,7 @@ export default function NewPassword() {
 								</Text>
 							)}
 						</View>
-						<FullRoundedButton text="Send Password" onPress={handleSubmit} />
+						<FullRoundedButton text="Set Password" onPress={handleSubmit} />
 					</View>
 				)}
 			</Formik>

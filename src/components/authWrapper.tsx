@@ -34,7 +34,7 @@ export default function AuthWrapper({
 					contentFit="contain"
 				/>
 				<View
-					style={tw`flex flex-col flex-1 items-center justify-start bg-white w-full rounded-t-[40px] py-5 px-8`}
+					style={tw`flex flex-col flex-1 items-center justify-start bg-white box-border w-full rounded-t-[40px] py-5 px-8`}
 				>
 					<View style={tw`flex flex-row w-full h-5 items-center justify-end`}>
 						{skippable && (
