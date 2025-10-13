@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import {
 	Dimensions,
 	FlatList,
-	StyleSheet,
 	Text,
 	TouchableOpacity,
 	View,
@@ -43,31 +42,22 @@ export default function Carousel() {
 					<ImageBackground
 						source={item.image}
 						contentFit="cover"
-						style={[styles.carouselItem, { width: screenWidth - 32 }]}
+						style={[{ height: 160 }, { width: screenWidth - 32 }]}
 					>
-						{/* <Image
-							source={item.image}
-							style={tw`w-full h-full bg-red-600`}
-							contentFit="cover"
-						/> */}
-						<View style={styles.textOverlay}>
-							<Text style={[styles.title, { color: item.textColor }]}>
+						<View style={tw`absolute top-5 left-5 gap-2`}>
+							<Text style={tw`text-${item.textColor} font-manropeBold text-lg`}>
 								{item.title}
 							</Text>
-							<Text style={[styles.subtitle, { color: item.textColor }]}>
+							<Text
+								style={tw`text-${item.textColor} font-manropeRegular text-sm w-3/5`}
+							>
 								{item.subtitle}
 							</Text>
 							<TouchableOpacity
-								style={[
-									styles.button,
-									{
-										backgroundColor: item.buttonColor,
-										alignSelf: 'flex-start',
-									},
-								]}
+								style={tw`self-start bg-[${item.buttonColor}] px-3 py-2 rounded-full mt-2`}
 							>
 								<Text
-									style={[styles.buttonText, { color: item.buttonTextColor }]}
+									style={tw`text-[${item.buttonTextColor}] font-manropeBold text-xs`}
 								>
 									{item.buttonText}
 								</Text>
@@ -108,48 +98,6 @@ export default function Carousel() {
 	);
 }
 
-const styles = StyleSheet.create({
-	carouselItem: {
-		height: 160,
-		//borderRadius: 10,
-
-		//display: 'flex',
-		//flex: 1,
-		//justifyContent: 'center',
-		//alignItems: 'center',
-		//backgroundColor: 'black',
-
-		//padding: 1,
-		//margin: 0,
-	},
-	textOverlay: {
-		position: 'absolute',
-		top: 20,
-		left: 20,
-		width: '60%',
-		gap: 12,
-	},
-	title: {
-		fontSize: 18,
-		fontWeight: 'bold',
-	},
-	subtitle: {
-		fontSize: 14,
-	},
-	button: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		paddingHorizontal: 12,
-		paddingVertical: 8,
-		borderRadius: 20,
-	},
-	buttonText: {
-		fontSize: 12,
-		fontWeight: 'bold',
-	},
-});
-
 const carouselData = [
 	{
 		id: '1',
@@ -163,7 +111,7 @@ const carouselData = [
 	},
 	{
 		id: '2',
-		title: 'Instant 25% back on Rides ',
+		title: 'Instant 25% back on rides',
 		subtitle: 'Earn rewards on your first 3 rides getting cashback instantly',
 		textColor: 'black',
 		buttonText: 'Book Now',
@@ -177,8 +125,8 @@ const carouselData = [
 		subtitle: 'On every Purchase of $ 30 in groceries',
 		textColor: 'black',
 		buttonText: 'Claim Now',
-		buttonColor: '#FFFFFF',
-		buttonTextColor: '#017ADF',
+		buttonColor: '#017ADF',
+		buttonTextColor: '#FFFFFF',
 		image: require('../../../../assets/images/carousel3.png'),
 	},
 ];

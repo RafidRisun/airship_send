@@ -316,3 +316,13 @@ export const iconLiked = `<svg width="8" height="8" viewBox="0 0 8 8" fill="none
 <path d="M1.5 5L4 7L5 6.5L6 5.5L7.5 3.5V2L7 0.5H5.5L4 1L3 0.5H1.5L0 2L0.5 4L1.5 5Z" fill="#FF0000"/>
 </svg>
 `;
+
+export const iconHalfStar = `<svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.23083 8.625L2.76598 9.91895C2.52693 10.0439 2.23816 10.0227 2.01989 9.86426C1.80161 9.70627 1.69231 9.43837 1.73766 9.17285L2.20837 6.43359L0.214226 4.49316C0.0210713 4.305 -0.0485984 4.0236 0.0345388 3.76758C0.118261 3.5117 0.339991 3.32478 0.606804 3.28613L3.36266 2.88672L4.59509 0.394531C4.71462 0.153077 4.96105 0 5.23083 0V8.625Z" fill="#EDA345"/>
+</svg>
+`;
+
+export const iconArrow = `<svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.0215517 0.5L1.63793 5.43534L0 10.5L6.09914 5.4569L0.0215517 0.5Z" fill="#00BF71"/>
+</svg>
+`;

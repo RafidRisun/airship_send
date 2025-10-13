@@ -5,12 +5,12 @@ import FeaturedRestaurantCard from './FeaturedRestaurantCard';
 
 export default function FeaturedRestaurants() {
 	return (
-		<View style={tw`flex flex-col w-full items-center justify-center`}>
+		<View style={tw`flex flex-col w-full gap-2 items-center justify-center`}>
 			<View style={tw`flex flex-row w-full items-center justify-between`}>
 				<Text style={tw`text-lg font-manropeSemiBold text-black`}>
 					Featured Restaurants
 				</Text>
-				<Text style={tw`text-base font-manropeRegular text-gray`}>See All</Text>
+				<Text style={tw`text-base font-manropeRegular text-gray`}>See all</Text>
 			</View>
 			<View style={tw`flex flex-row w-full items-center justify-between gap-2`}>
 				<FeaturedRestaurantCard

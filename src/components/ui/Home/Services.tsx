@@ -6,11 +6,14 @@ import {
 	iconTransport,
 } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function Services() {
+	const router = useRouter();
+
 	return (
 		<View style={tw`flex flex-col w-full gap-3`}>
 			<Text style={tw`text-lg font-manropeSemiBold`}>Services</Text>
@@ -18,6 +21,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
+						onPress={() => router.push('/services')}
 					>
 						<SvgXml xml={iconPickupAndDelivery} />
 					</TouchableOpacity>
@@ -28,6 +32,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
+						onPress={() => router.push('/services/foodDelivery')}
 					>
 						<SvgXml xml={iconFoodDelivery} />
 					</TouchableOpacity>
@@ -38,6 +43,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
+						onPress={() => router.push('/services/shopping')}
 					>
 						<SvgXml xml={iconShopping} />
 					</TouchableOpacity>
@@ -48,6 +54,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
+						onPress={() => router.push('/services/errands')}
 					>
 						<SvgXml xml={iconErrands} />
 					</TouchableOpacity>
@@ -58,6 +65,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
+						onPress={() => router.push('/services/transport')}
 					>
 						<SvgXml xml={iconTransport} />
 					</TouchableOpacity>
