@@ -101,7 +101,7 @@ export default function Index() {
 				horizontal
 				showsHorizontalScrollIndicator={false}
 				style={tw`w-full`}
-				contentContainerStyle={tw`flex flex-row items-center justify-start gap-4`}
+				contentContainerStyle={tw`flex flex-row items-center justify-start gap-2`}
 			>
 				{popularCategories.map(category => (
 					<TouchableOpacity
@@ -124,7 +124,7 @@ export default function Index() {
 				horizontal
 				showsHorizontalScrollIndicator={false}
 				style={tw`w-full`}
-				contentContainerStyle={tw`flex flex-row items-center justify-start gap-4 pb-5`}
+				contentContainerStyle={tw`flex flex-row items-center justify-start gap-2 pb-5`}
 			>
 				{forYouData.map(food => (
 					<TouchableOpacity
