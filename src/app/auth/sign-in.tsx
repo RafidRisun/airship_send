@@ -6,8 +6,8 @@ import {
 	iconPhone,
 	iconVisible,
 } from '@/assets/icons';
+import AuthWrapper from '@/src/components/AuthWrapper';
 import FullRoundedButton from '@/src/components/FullRoundedButton';
-import AuthWrapper from '@/src/components/authWrapper';
 import tw from '@/src/lib/tailwind';
 import { Link, useRouter } from 'expo-router';
 import { Formik } from 'formik';

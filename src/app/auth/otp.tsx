@@ -1,5 +1,5 @@
+import AuthWrapper from '@/src/components/AuthWrapper';
 import FullRoundedButton from '@/src/components/FullRoundedButton';
-import AuthWrapper from '@/src/components/authWrapper';
 import tw from '@/src/lib/tailwind';
 import { Link, useRouter } from 'expo-router';
 import React, { useState } from 'react';
