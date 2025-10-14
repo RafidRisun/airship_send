@@ -1,6 +1,6 @@
 import { iconArrow } from '@/assets/icons';
 import BecauseYouBought from '@/src/components/ui/Home/BecauseYouBought';
-import Carousel from '@/src/components/ui/Home/Carousel';
+import CarouselRN from '@/src/components/ui/Home/CarouselRN';
 import Categories from '@/src/components/ui/Home/Categories';
 import FeaturedRestaurants from '@/src/components/ui/Home/FeaturedRestaurants';
 import ProfileAndLocation from '@/src/components/ui/Home/ProfileAndLocation';
@@ -37,8 +37,8 @@ export default function Index() {
 
 						<ProfileAndLocation />
 						<SearchBar />
-						<Carousel />
-						{/* <CarouselRN /> */}
+						{/* <Carousel /> */}
+						<CarouselRN />
 						<Services />
 						<Categories />
 						<FeaturedRestaurants />

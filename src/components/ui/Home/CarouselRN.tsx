@@ -1,6 +1,13 @@
+import tw from '@/src/lib/tailwind';
 import * as React from 'react';
-import { Image, Text, View } from 'react-native';
-import { useSharedValue } from 'react-native-reanimated';
+import { useState } from 'react';
+import {
+	Image,
+	Text,
+	TouchableOpacity,
+	useWindowDimensions,
+	View,
+} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 
 const carouselData = [
@@ -37,56 +44,66 @@ const carouselData = [
 ];
 
 export default function CarouselRN() {
-	const scrollOffsetValue = useSharedValue<number>(0);
+	const { width: screenWidth } = useWindowDimensions();
+	const parentPadding = 32; // left + right
+	const carouselWidth = screenWidth - parentPadding;
+	const height = 170; // you can make this flexible
+	const [activeIndex, setActiveIndex] = useState(0); // Track active index
 
 	return (
-		<View style={{ width: '100%', height: 258 }}>
+		<View style={tw`flex w-full items-center justify-center gap-3`}>
 			<Carousel
-				loop={true}
-				width={430}
-				height={258}
-				snapEnabled={true}
-				pagingEnabled={true}
-				autoPlayInterval={2000}
+				loop
+				width={carouselWidth}
+				height={height}
+				autoPlay={true}
 				data={carouselData}
-				defaultScrollOffsetValue={scrollOffsetValue}
-				style={{ width: '100%' }}
-				onScrollStart={() => {
-					console.log('Scroll start');
-				}}
-				onScrollEnd={() => {
-					console.log('Scroll end');
-				}}
-				onSnapToItem={(index: number) => console.log('current index:', index)}
+				scrollAnimationDuration={1000}
+				onSnapToItem={index => setActiveIndex(index)} // Update active index
 				renderItem={({ item }) => (
-					<View
-						style={{
-							flex: 1,
-							alignItems: 'center',
-							justifyContent: 'center',
-							backgroundColor: item.buttonColor,
-						}}
-					>
+					<View style={tw`flex-1 items-center justify-center`}>
 						<Image
 							source={item.image}
-							style={{ width: '100%', height: '100%' }}
+							style={tw`absolute top-0 left-0 w-full h-full rounded-xl`}
 							resizeMode="cover"
 						/>
-						<Text
-							style={{
-								color: item.textColor,
-								fontSize: 18,
-								fontWeight: 'bold',
-							}}
-						>
-							{item.title}
-						</Text>
-						<Text style={{ color: item.textColor, fontSize: 14 }}>
-							{item.subtitle}
-						</Text>
+						<View style={tw`absolute top-5 left-5 gap-2`}>
+							<Text style={tw`text-${item.textColor} font-manropeBold text-lg`}>
+								{item.title}
+							</Text>
+							<Text
+								style={tw`text-${item.textColor} font-manropeRegular text-sm w-3/5`}
+							>
+								{item.subtitle}
+							</Text>
+							<TouchableOpacity
+								style={tw`self-start bg-[${item.buttonColor}] px-3 py-2 rounded-full mt-2`}
+							>
+								<Text
+									style={tw`text-[${item.buttonTextColor}] font-manropeBold text-xs`}
+								>
+									{item.buttonText}
+								</Text>
+							</TouchableOpacity>
+						</View>
 					</View>
 				)}
 			/>
+			{/* Indicator Dots */}
+			<View style={tw`flex flex-row items-center justify-center w-full gap-2`}>
+				{carouselData.map((_, index) => (
+					<View
+						key={index}
+						style={[
+							tw`rounded-full h-2`,
+							{
+								width: activeIndex === index ? 24 : 8,
+								backgroundColor: activeIndex === index ? '#017ADF' : '#A0A0A0',
+							},
+						]}
+					/>
+				))}
+			</View>
 		</View>
 	);
 }
