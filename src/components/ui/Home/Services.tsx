@@ -21,7 +21,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services')}
+						onPress={() => router.push('/pickup-and-delivery')}
 					>
 						<SvgXml xml={iconPickupAndDelivery} />
 					</TouchableOpacity>
@@ -32,7 +32,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services/foodDelivery')}
+						onPress={() => router.push('/food-order')}
 					>
 						<SvgXml xml={iconFoodDelivery} />
 					</TouchableOpacity>
@@ -43,7 +43,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services/shopping')}
+						onPress={() => router.push('/shopping')}
 					>
 						<SvgXml xml={iconShopping} />
 					</TouchableOpacity>
@@ -54,7 +54,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services/errands')}
+						onPress={() => router.push('/errands')}
 					>
 						<SvgXml xml={iconErrands} />
 					</TouchableOpacity>
@@ -65,7 +65,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services/transport')}
+						onPress={() => router.push('/transport')}
 					>
 						<SvgXml xml={iconTransport} />
 					</TouchableOpacity>

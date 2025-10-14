@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function Transport() {
+export default function Index() {
 	return (
 		<View>
-			<Text>Transport</Text>
+			<Text>Index</Text>
 		</View>
 	);
 }
