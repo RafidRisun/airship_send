@@ -7,11 +7,13 @@ import {
 } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function NearYou({
+	id,
 	name,
 	image,
 	rating,
@@ -19,6 +21,7 @@ export default function NearYou({
 	estimatedTime,
 	distance,
 }: {
+	id: string;
 	name: string;
 	image: any;
 	rating: number;
@@ -27,8 +30,12 @@ export default function NearYou({
 	distance: string;
 }) {
 	const [liked, setLiked] = React.useState(false);
+	const router = useRouter();
 	return (
-		<View style={tw`flex flex-col w-full gap-1`}>
+		<TouchableOpacity
+			style={tw`flex flex-col w-full gap-1`}
+			onPress={() => router.push(`/food-order/restaurants/${id}`)}
+		>
 			<Image
 				source={image}
 				style={tw`w-full h-38 rounded-lg`}
@@ -60,6 +67,6 @@ export default function NearYou({
 			>
 				<SvgXml xml={liked ? iconLiked : iconLike} height={14} width={14} />
 			</TouchableOpacity>
-		</View>
+		</TouchableOpacity>
 	);
 }

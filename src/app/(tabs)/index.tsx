@@ -26,6 +26,7 @@ import { SvgXml } from 'react-native-svg';
 export default function Index() {
 	return (
 		<SafeAreaView style={tw`flex flex-1 bg-white`}>
+			<StatusBar style="dark" />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<TouchableWithoutFeedback
 					onPress={() => {

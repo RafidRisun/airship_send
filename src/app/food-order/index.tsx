@@ -5,6 +5,7 @@ import Header from '@/src/components/ui/Header';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
 	ScrollView,
@@ -21,6 +22,7 @@ export default function Index() {
 
 	return (
 		<PageWrapper>
+			<StatusBar style="dark" />
 			<View style={tw`flex flex-row w-full items-center justify-start gap-2`}>
 				<TouchableOpacity
 					style={tw`flex items-center justify-center p-3 aspect-square rounded-full bg-blue shadow-md`}
