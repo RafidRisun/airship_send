@@ -39,7 +39,7 @@ export default function Index() {
 					style={tw`flex flex-row w-full h-11/12 items-start justify-center p-4 gap-2 bg-[#FA7C0A] rounded-xl`}
 				>
 					<Text
-						style={tw`text-base font-manropeRegular text-white text-wrap flex-1 px-2`}
+						style={tw`text-base font-manropeRegular text-white flex-1 px-2`}
 					>
 						Upto{`\n`}
 						<Text style={tw`font-manropeBold text-4xl`}>30% Off </Text>
