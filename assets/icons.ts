@@ -326,3 +326,9 @@ export const iconArrow = `<svg width="7" height="11" viewBox="0 0 7 11" fill="no
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0215517 0.5L1.63793 5.43534L0 10.5L6.09914 5.4569L0.0215517 0.5Z" fill="#00BF71"/>
 </svg>
 `;
+
+export const iconAdd = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="9" cy="9" r="9" fill="#017ADF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.15907 7.83942H7.83942V5.15907C7.83942 3.61364 10.1696 3.61364 10.1696 5.15907V7.83942H12.85C14.3833 7.83942 14.3833 10.1696 12.85 10.1696H10.1696V12.85C10.1696 14.3833 7.83942 14.3833 7.83942 12.85V10.1696H5.15907C3.61364 10.1696 3.61364 7.83942 5.15907 7.83942Z" fill="white"/>
+</svg>
+`;

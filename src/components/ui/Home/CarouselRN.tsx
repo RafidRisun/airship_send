@@ -85,14 +85,14 @@ export default function CarouselRN() {
 					setActiveIndex(index); // Update active index
 					animateDot(index);
 				}} // Update active index
-				onScrollStart={() => {
-					// Pause autoPlay when the user starts scrolling
-					console.log('Scroll started, pausing autoPlay');
-				}}
-				onScrollEnd={() => {
-					// Resume autoPlay after the user finishes scrolling
-					console.log('Scroll ended, resuming autoPlay');
-				}}
+				// onScrollStart={() => {
+				// 	// Pause autoPlay when the user starts scrolling
+				// 	console.log('Scroll started, pausing autoPlay');
+				// }}
+				// onScrollEnd={() => {
+				// 	// Resume autoPlay after the user finishes scrolling
+				// 	console.log('Scroll ended, resuming autoPlay');
+				// }}
 				renderItem={({ item }) => (
 					<View style={tw`flex-1 items-center justify-center`}>
 						<TouchableWithoutFeedback>

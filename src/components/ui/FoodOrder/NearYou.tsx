@@ -36,10 +36,13 @@ export default function NearYou({
 			/>
 			<View style={tw`flex flex-col w-full`}>
 				<Text style={tw`font-manropeBold text-lg`}>{name}</Text>
-				<View style={tw`flex flex-row items-center gap-2`}>
-					<Text style={tw`font-manropeRegular text-sm text-gray`}>
-						{rating.toFixed(1)} <SvgXml xml={iconStar} />
-					</Text>
+				<View style={tw`flex flex-row w-full items-center gap-2`}>
+					<View style={tw`flex flex-row items-center justify-center gap-1`}>
+						<Text style={tw`font-manropeRegular text-sm text-gray`}>
+							{rating.toFixed(1)}
+						</Text>
+						<SvgXml xml={iconStar} />
+					</View>
 					<Text style={tw`text-sm font-manropeRegular text-gray`}>
 						{Math.floor(reviews / 10) * 10} + Ratings
 					</Text>
@@ -52,7 +55,7 @@ export default function NearYou({
 				</View>
 			</View>
 			<TouchableOpacity
-				style={tw`absolute top-3 right-3 bg-white p-1.5 rounded-full`}
+				style={tw`absolute flex items-center justify-center top-3 right-3 bg-white p-1.5 rounded-full`}
 				onPress={() => setLiked(!liked)}
 			>
 				<SvgXml xml={liked ? iconLiked : iconLike} height={14} width={14} />

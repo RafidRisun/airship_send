@@ -1,4 +1,4 @@
-import { iconLocation, iconSearch } from '@/assets/icons';
+import { iconAdd, iconLocation, iconSearch, iconTime } from '@/assets/icons';
 import PageWrapper from '@/src/components/PageWrapper';
 import NearYou from '@/src/components/ui/FoodOrder/NearYou';
 import Header from '@/src/components/ui/Header';
@@ -106,7 +106,7 @@ export default function Index() {
 				{popularCategories.map(category => (
 					<TouchableOpacity
 						key={category.id}
-						style={tw`flex items-center justify-center w-25 aspect-square bg-black rounded-lg`}
+						style={tw`flex items-center justify-center w-25 aspect-square bg-black rounded-xl`}
 					>
 						<Image
 							source={category.icon}
@@ -124,11 +124,54 @@ export default function Index() {
 				horizontal
 				showsHorizontalScrollIndicator={false}
 				style={tw`w-full`}
-				contentContainerStyle={tw`flex flex-row items-center justify-start gap-4`}
+				contentContainerStyle={tw`flex flex-row items-center justify-start gap-4 pb-5`}
 			>
-				{/* {popularCategories.map(category => (
-					
-				))} */}
+				{forYouData.map(food => (
+					<TouchableOpacity
+						key={food.id}
+						style={tw`flex flex-col w-40 bg-white rounded-xl shadow-sm`}
+					>
+						<Image
+							source={food.image}
+							style={tw`w-full h-24 rounded-t-xl`}
+							contentFit="cover"
+						/>
+						<View style={tw`flex flex-col p-2 gap-1`}>
+							<View style={tw`flex flex-row items-center justify-between`}>
+								<View style={tw`flex-1`}>
+									<Text
+										style={tw`font-manropeSemiBold text-base capitalize`}
+										numberOfLines={1}
+										ellipsizeMode="tail"
+									>
+										{food.name}
+									</Text>
+								</View>
+								<TouchableOpacity>
+									<SvgXml xml={iconAdd} />
+								</TouchableOpacity>
+							</View>
+							<View style={tw`flex flex-row items-center justify-start gap-2`}>
+								<SvgXml xml={iconTime} />
+								<Text style={tw`text-xs font-manropeRegular text-gray`}>
+									{food.time}
+								</Text>
+							</View>
+							<View style={tw`flex flex-row items-end justify-start gap-1`}>
+								{food.offer && (
+									<Text
+										style={tw`text-xs font-manropeRegular text-gray line-through`}
+									>
+										₱ {food.previousPrice}
+									</Text>
+								)}
+								<Text style={tw`text-sm font-manropeBold text-blue`}>
+									₱ {food.price}
+								</Text>
+							</View>
+						</View>
+					</TouchableOpacity>
+				))}
 			</ScrollView>
 		</PageWrapper>
 	);
