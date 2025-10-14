@@ -37,7 +37,11 @@ export default function BecauseYouBought() {
 					<Text style={tw`text-sm font-manropeBold`}>
 						₱ {bczYouBoughtData[0].price}
 					</Text>
-					<Text style={tw`text-xs font-manropeRegular text-gray`}>
+					<Text
+						style={tw`text-xs font-manropeRegular text-gray`}
+						numberOfLines={2}
+						ellipsizeMode="tail"
+					>
 						{bczYouBoughtData[0].description}
 					</Text>
 				</View>
@@ -60,6 +64,6 @@ const bczYouBoughtData = [
 		reviews: 665,
 		price: '250',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate',
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate',
 	},
 ];

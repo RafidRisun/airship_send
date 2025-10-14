@@ -52,10 +52,16 @@ export default function FeaturedRestaurantCard({
 			</View>
 			<View style={tw`flex flex-col w-full items-center justify-center px-1`}>
 				<View style={tw`flex flex-row items-center justify-between w-full`}>
-					<Text style={tw`text-xs font-manropeBold`}>{name}</Text>
+					<Text
+						style={tw`text-xs font-manropeBold capitalize`}
+						numberOfLines={1}
+						ellipsizeMode="tail"
+					>
+						{name}
+					</Text>
 					<View style={tw`flex flex-row items-center justify-center gap-2`}>
 						<SvgXml xml={iconStar} />
-						<Text style={tw`text-sm font-manropeSemiBold text-gray`}>
+						<Text style={tw`text-xs font-manropeSemiBold text-gray`}>
 							{rating.toFixed(1)}
 						</Text>
 					</View>

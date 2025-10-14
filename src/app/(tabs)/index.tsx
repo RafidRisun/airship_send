@@ -57,10 +57,10 @@ export default function Index() {
 							style={tw`w-12 aspect-square rounded-full`}
 						/>
 						<View style={tw`flex flex-col flex-1 items-start justify-center`}>
-							<Text style={tw`font-manropeSemiBold text-base`}>
+							<Text style={tw`font-manropeSemiBold text-sm`}>
 								{currentDelivery.restaurant}
 							</Text>
-							<Text style={tw`font-manropeSemiBold text-sm text-green-500`}>
+							<Text style={tw`font-manropeSemiBold text-xs text-green-500`}>
 								{currentDelivery.status} <SvgXml xml={iconArrow} />
 							</Text>
 						</View>
