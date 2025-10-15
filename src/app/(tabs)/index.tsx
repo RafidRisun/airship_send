@@ -61,9 +61,12 @@ export default function Index() {
 							<Text style={tw`font-manropeSemiBold text-sm`}>
 								{currentDelivery.restaurant}
 							</Text>
-							<Text style={tw`font-manropeSemiBold text-xs text-green-500`}>
-								{currentDelivery.status} <SvgXml xml={iconArrow} />
-							</Text>
+							<View style={tw`flex flex-row items-center justify-center gap-1`}>
+								<Text style={tw`font-manropeSemiBold text-xs text-green-500`}>
+									{currentDelivery.status}
+								</Text>
+								<SvgXml xml={iconArrow} />
+							</View>
 						</View>
 						<View
 							style={tw`flex flex-col items-center justify-center py-1 px-4 bg-blue rounded-lg`}

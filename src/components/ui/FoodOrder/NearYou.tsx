@@ -34,7 +34,7 @@ export default function NearYou({
 	return (
 		<TouchableOpacity
 			style={tw`flex flex-col w-full gap-1`}
-			onPress={() => router.push(`/food-order/restaurants/${id}`)}
+			onPress={() => router.push(`/services/food-order/restaurants/${id}`)}
 		>
 			<Image
 				source={image}
