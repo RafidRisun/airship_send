@@ -15,6 +15,8 @@ export default function FoodOrderLayout() {
 				name="restaurants/[id]"
 				options={{ headerTitle: 'Restaurant' }}
 			/>
+			<Stack.Screen name="searchFood" options={{ headerTitle: 'Search' }} />
+			<Stack.Screen name="food-item/[id]" options={{ headerTitle: 'Menu' }} />
 		</Stack>
 	);
 }

@@ -37,11 +37,16 @@ export default function Index() {
 						<StatusBar style="dark" />
 
 						<ProfileAndLocation />
-						<SearchBar />
+						<SearchBar
+							placeholder="Search for food, groceries, etc."
+							onChange={text => {
+								console.log(text);
+							}}
+						/>
 						{/* <Carousel /> */}
 						<CarouselRN />
 						<Services />
-						<Categories />
+						<Categories categories={categories} />
 						<FeaturedRestaurants />
 						<BecauseYouBought />
 						<ShopsNearYou />
@@ -92,3 +97,11 @@ const currentDelivery = {
 	arrivingIn: '23 mins',
 	status: 'Your order is on the way',
 };
+
+const categories = [
+	{ id: '1', name: 'All' },
+	{ id: '2', name: 'Healthy' },
+	{ id: '3', name: 'Fast Food' },
+	{ id: '4', name: 'Vegan' },
+	{ id: '5', name: 'Non Veg' },
+];

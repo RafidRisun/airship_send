@@ -9,6 +9,7 @@ import {
 import AuthWrapper from '@/src/components/AuthWrapper';
 import FullRoundedButton from '@/src/components/FullRoundedButton';
 import tw from '@/src/lib/tailwind';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Link, useRouter } from 'expo-router';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
@@ -24,6 +25,12 @@ const SignInSchema = Yup.object().shape({
 export default function SignIn() {
 	const [hidePassword, setHidePassword] = useState(true);
 	const router = useRouter();
+
+	const handleSignIn = async () => {
+		AsyncStorage.setItem('isLoggedIn', 'true');
+		router.push('(tabs)');
+	};
+
 	return (
 		<AuthWrapper skippable={true}>
 			<Formik
@@ -101,8 +108,7 @@ export default function SignIn() {
 							<FullRoundedButton
 								text="Sign In"
 								onPress={() => {
-									//handleSubmit
-									router.push('(tabs)');
+									handleSignIn();
 								}}
 							/>
 							<Text style={tw`font-manropeRegular text-base text-center`}>

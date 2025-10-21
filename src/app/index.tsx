@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
@@ -11,10 +12,19 @@ export default function Index() {
 	const loggedIn = useSelector((state: RootState) => state.loggedIn);
 	const router = useRouter();
 
-	useEffect(() => {
+	const checkLoginStatus = async () => {
+		const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
 		setTimeout(() => {
-			router.replace('/onboarding');
+			if (isLoggedIn === 'true') {
+				router.replace('(tabs)');
+			} else {
+				router.replace('/onboarding');
+			}
 		}, 1500);
+	};
+
+	useEffect(() => {
+		checkLoginStatus();
 	}, []);
 
 	return (

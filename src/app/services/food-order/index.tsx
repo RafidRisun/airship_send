@@ -7,18 +7,13 @@ import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {
-	ScrollView,
-	Text,
-	TextInput,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function Index() {
+	// const router = useRouter();
+	// const [liked, setLiked] = React.useState(false);
 	const router = useRouter();
-	const [liked, setLiked] = React.useState(false);
 
 	return (
 		<PageWrapper>
@@ -54,15 +49,17 @@ export default function Index() {
 						contentFit="contain"
 					/>
 				</View>
-				<View
-					style={tw`flex flex-row items-center px-4 w-11/12 h-12 bg-white rounded-lg absolute bottom-0 shadow-md`}
+				<TouchableOpacity
+					style={tw`flex flex-row items-center justify-between px-4 w-11/12 h-12 bg-white rounded-lg absolute bottom-0 shadow-md`}
+					onPress={() => {
+						router.push('/services/food-order/searchFood');
+					}}
 				>
-					<TextInput
-						placeholder="Search for food"
-						style={tw`flex-1 font-manropeRegular text-sm`}
-					/>
+					<Text style={tw`font-manropeRegular text-sm text-gray`}>
+						Search for food
+					</Text>
 					<SvgXml xml={iconSearch} />
-				</View>
+				</TouchableOpacity>
 			</View>
 			<Header title="Popular Categories" seeAll={false} />
 			<ScrollView

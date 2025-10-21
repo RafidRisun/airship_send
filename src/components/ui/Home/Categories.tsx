@@ -2,7 +2,7 @@ import tw from '@/src/lib/tailwind';
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Categories() {
+export default function Categories({ categories }: { categories: any[] }) {
 	const [selectedCategory, setSelectedCategory] = React.useState(categories[0]);
 	return (
 		<View style={tw`flex w-full items-center justify-center py-2`}>
@@ -30,11 +30,3 @@ export default function Categories() {
 		</View>
 	);
 }
-
-const categories = [
-	{ id: '1', name: 'All' },
-	{ id: '2', name: 'Healthy' },
-	{ id: '3', name: 'Fast Food' },
-	{ id: '4', name: 'Vegan' },
-	{ id: '5', name: 'Non Veg' },
-];
