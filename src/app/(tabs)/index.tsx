@@ -33,9 +33,9 @@ export default function Index() {
 						Keyboard.dismiss();
 					}}
 				>
-					<View style={tw`flex flex-col w-full flex-1 bg-white gap-5 p-4`}>
-						<StatusBar style="dark" />
-
+					<View
+						style={tw`flex flex-col w-full flex-1 bg-white gap-5 p-4 pb-15`}
+					>
 						<ProfileAndLocation />
 						<SearchBar
 							placeholder="Search for food, groceries, etc."
@@ -54,9 +54,9 @@ export default function Index() {
 				</TouchableWithoutFeedback>
 			</ScrollView>
 			{currentDelivery && (
-				<View style={tw`flex px-4 bg-white`}>
+				<View style={tw`flex px-4 absolute bottom-2 w-full`}>
 					<View
-						style={tw`flex flex-row items-center justify-between p-3 gap-3 bg-white shadow-md rounded-xl`}
+						style={tw`flex flex-row items-center justify-between p-3 gap-3 bg-white shadow-sm rounded-xl`}
 					>
 						<Image
 							source={currentDelivery.image}

@@ -5,12 +5,14 @@ import Header from '@/src/components/ui/Header';
 import SearchBar from '@/src/components/ui/Home/SearchBar';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function SearchFood() {
 	const [selectedCategory, setSelectedCategory] = React.useState({} as any);
+	const router = useRouter();
 	return (
 		<PageWrapper>
 			<SearchBar
@@ -57,6 +59,9 @@ export default function SearchFood() {
 					<TouchableOpacity
 						key={restaurant.id}
 						style={tw`flex flex-col gap-2 w-40`}
+						onPress={() =>
+							router.push(`/services/food-order/restaurants/${restaurant.id}`)
+						}
 					>
 						<Image
 							source={restaurant.image}

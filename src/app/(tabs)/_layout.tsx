@@ -103,6 +103,11 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="cart"
 				options={{
+					headerShown: true,
+					headerTitle: 'Cart',
+					headerTitleAlign: 'center',
+					headerTitleStyle: { fontFamily: 'manropeBold', fontSize: 16 },
+					headerShadowVisible: false,
 					tabBarIcon: ({ focused }) => (
 						<View
 							style={{

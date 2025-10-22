@@ -1,5 +1,6 @@
 import {
 	iconAdd,
+	iconCartBLue,
 	iconHalfStar,
 	iconLike,
 	iconLiked,
@@ -8,7 +9,7 @@ import {
 } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
-import { useLocalSearchParams } from 'expo-router/build/hooks';
+import { useLocalSearchParams, useRouter } from 'expo-router/build/hooks';
 import React, { useState } from 'react';
 import {
 	Dimensions,
@@ -19,6 +20,7 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import { SvgXml } from 'react-native-svg';
+import FoodModal from './modal';
 
 export default function FoodItem() {
 	const { id } = useLocalSearchParams(); // Extract the `id` parameter
@@ -27,10 +29,15 @@ export default function FoodItem() {
 	const [liked, setLiked] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0); // Track the active slide index
 	const [quantity, setQuantity] = useState(0);
+	const [modalVisible, setModalVisible] = useState(false);
+	const router = useRouter();
+
 	return (
 		<View style={tw`flex flex-1`}>
 			<ScrollView style={tw`flex-1 w-full bg-white`}>
-				<View style={tw`flex flex-col items-center justify-center w-full`}>
+				<View
+					style={tw`flex flex-col items-center justify-center w-full pb-30`}
+				>
 					<View style={tw`flex w-full`}>
 						<Carousel
 							width={screenWidth}
@@ -163,6 +170,9 @@ export default function FoodItem() {
 									<TouchableOpacity
 										key={food.id}
 										style={tw`flex flex-col gap-2 w-40`}
+										onPress={() =>
+											router.push(`/services/food-order/food-item/${food.id}`)
+										}
 									>
 										<Image
 											source={food.image}
@@ -213,19 +223,26 @@ export default function FoodItem() {
 				</View>
 			</ScrollView>
 			<View
-				style={tw`flex flex-row w-full items-center justify-between gap-4 bg-white px-4 py-6`}
+				style={tw`flex flex-row w-full items-start justify-between bg-white absolute bottom-0 gap-2 px-4 pt-2 pb-10`}
 			>
 				<TouchableOpacity
 					style={tw`flex items-center justify-center bg-blue p-3 rounded-full flex-1`}
+					onPress={() => setModalVisible(true)}
 				>
 					<Text style={tw`text-white font-manropeSemiBold`}>Buy Now</Text>
 				</TouchableOpacity>
 				<TouchableOpacity
-					style={tw`flex items-center justify-center bg-white border border-blue p-3 rounded-full flex-1`}
+					style={tw`flex flex-row items-center justify-center bg-white border border-blue p-3 rounded-full flex-1 gap-2`}
 				>
+					<SvgXml xml={iconCartBLue} />
 					<Text style={tw`text-blue font-manropeSemiBold`}>Add to Cart</Text>
 				</TouchableOpacity>
 			</View>
+
+			<FoodModal
+				modalVisible={modalVisible}
+				setModalVisible={setModalVisible}
+			/>
 		</View>
 	);
 }

@@ -129,6 +129,9 @@ export default function Index() {
 					<TouchableOpacity
 						key={food.id}
 						style={tw`flex flex-col w-40 bg-white rounded-xl shadow-sm`}
+						onPress={() =>
+							router.push(`/services/food-order/food-item/${food.id}`)
+						}
 					>
 						<Image
 							source={food.image}
