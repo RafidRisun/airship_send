@@ -18,8 +18,10 @@ import { SvgXml } from 'react-native-svg';
 
 export default function Order() {
 	return (
-		<View style={tw`flex flex-col flex-1 w-full gap-6 py-4 bg-white`}>
-			<View style={tw`flex flex-row items-start justify-between w-full px-2`}>
+		<View style={tw`flex flex-col flex-1 w-full bg-white`}>
+			<View
+				style={tw`flex flex-row items-start justify-between w-full px-2 mb-2`}
+			>
 				<View
 					style={tw`h-1 w-8/10 bg-gray absolute top-1/4 left-1/2 -translate-x-1/2 flex items-start justify-center`}
 				>
@@ -28,7 +30,7 @@ export default function Order() {
 				<View style={tw`flex flex-col items-center justify-center gap-2 w-20`}>
 					<View style={tw`flex items-center justify-center p-1 bg-white`}>
 						<View
-							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-md`}
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 						>
 							<SvgXml xml={iconConfirmed} />
 						</View>
@@ -40,7 +42,7 @@ export default function Order() {
 				<View style={tw`flex flex-col items-center justify-center gap-2 w-20`}>
 					<View style={tw`flex items-center justify-center p-1 bg-white`}>
 						<View
-							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-md`}
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 						>
 							<SvgXml xml={iconPickup} />
 						</View>
@@ -52,7 +54,7 @@ export default function Order() {
 				<View style={tw`flex flex-col items-center justify-center gap-2 w-20`}>
 					<View style={tw`flex items-center justify-center p-1 bg-white`}>
 						<View
-							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-md`}
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 						>
 							<SvgXml xml={iconOnTheWay} />
 						</View>
@@ -64,7 +66,7 @@ export default function Order() {
 				<View style={tw`flex flex-col items-center justify-center gap-2 w-20`}>
 					<View style={tw`flex items-center justify-center p-1 bg-white`}>
 						<View
-							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-md`}
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 						>
 							<SvgXml xml={iconDelivered} />
 						</View>
