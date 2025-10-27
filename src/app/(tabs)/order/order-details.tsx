@@ -59,12 +59,10 @@ export default function OrderDetails() {
 						</Text>
 					</View>
 					<View style={tw`flex flex-col flex-1 justify-start`}>
-						<Text style={tw`text-xs text-gray font-manropeRegular`}>From</Text>
-						<Text style={tw`text-sm font-manropeSemiBold`}>
-							02 Street, Manila
-						</Text>
+						<Text style={tw`text-xs text-gray font-manropeRegular`}>To</Text>
+						<Text style={tw`text-sm font-manropeSemiBold`}>222/1 Dhaka</Text>
 						<Text style={tw`text-xs text-gray font-manropeRegular`}>
-							Sender Name- 06315636342
+							Receiver Name- 06315636342
 						</Text>
 					</View>
 				</View>
