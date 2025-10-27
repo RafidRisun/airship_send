@@ -19,7 +19,7 @@ export default function RecommenderCard({
 					key={index}
 					style={tw`flex flex-row w-full items-center justify-between gap-2`}
 					onPress={() =>
-						router.push(`/services/food-order/food-item/${item.id}`)
+						router.push(`/(tabs)/home/food-order/food-item/${item.id}`)
 					}
 				>
 					<Image

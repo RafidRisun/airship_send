@@ -27,7 +27,7 @@ export default function AllRestaurantCard({
 	return (
 		<TouchableOpacity
 			style={tw`flex flex-col w-full gap-1`}
-			onPress={() => router.push(`/services/food-order/restaurants/${id}`)}
+			onPress={() => router.push(`/(tabs)/home/food-order/restaurants/${id}`)}
 		>
 			<Image
 				source={image}

@@ -171,7 +171,9 @@ export default function FoodItem() {
 										key={food.id}
 										style={tw`flex flex-col gap-2 w-40`}
 										onPress={() =>
-											router.push(`/services/food-order/food-item/${food.id}`)
+											router.push(
+												`/(tabs)/home/food-order/food-item/${food.id}`
+											)
 										}
 									>
 										<Image
@@ -223,7 +225,7 @@ export default function FoodItem() {
 				</View>
 			</ScrollView>
 			<View
-				style={tw`flex flex-row w-full items-start justify-between bg-white absolute bottom-0 gap-2 px-4 pt-2 pb-10`}
+				style={tw`flex flex-row w-full items-start justify-between bg-white absolute bottom-0 gap-2 px-4 pt-2`}
 			>
 				<TouchableOpacity
 					style={tw`flex items-center justify-center bg-blue p-3 rounded-full flex-1`}
@@ -252,9 +254,9 @@ const recommendedData = [
 		id: '1',
 		name: 'Sisig',
 		image: [
-			require('../../../../../assets/images/food.png'),
-			require('../../../../../assets/images/food1.png'),
-			require('../../../../../assets/images/food2.png'),
+			require('../../../../../../assets/images/food.png'),
+			require('../../../../../../assets/images/food1.png'),
+			require('../../../../../../assets/images/food2.png'),
 		],
 		rating: 4.5,
 		reviews: 665,
@@ -267,9 +269,9 @@ const recommendedData = [
 		id: '2',
 		name: 'Pasta',
 		image: [
-			require('../../../../../assets/images/food.png'),
-			require('../../../../../assets/images/food1.png'),
-			require('../../../../../assets/images/food2.png'),
+			require('../../../../../../assets/images/food.png'),
+			require('../../../../../../assets/images/food1.png'),
+			require('../../../../../../assets/images/food2.png'),
 		],
 		rating: 4.5,
 		reviews: 665,
@@ -282,9 +284,9 @@ const recommendedData = [
 		id: '3',
 		name: 'Burger',
 		image: [
-			require('../../../../../assets/images/food.png'),
-			require('../../../../../assets/images/food1.png'),
-			require('../../../../../assets/images/food2.png'),
+			require('../../../../../../assets/images/food.png'),
+			require('../../../../../../assets/images/food1.png'),
+			require('../../../../../../assets/images/food2.png'),
 		],
 		rating: 4.5,
 		reviews: 665,
@@ -301,27 +303,27 @@ const forYouFood = [
 		name: 'Sisig',
 		rating: 4.5,
 		restaurant: 'El Poco Cantina',
-		image: require('../../../../../assets/images/food.png'),
+		image: require('../../../../../../assets/images/food.png'),
 	},
 	{
 		id: '2',
 		name: 'Burger',
 		rating: 4.5,
 		restaurant: 'El Coco',
-		image: require('../../../../../assets/images/food1.png'),
+		image: require('../../../../../../assets/images/food1.png'),
 	},
 	{
 		id: '3',
 		name: 'Pasta',
 		rating: 4.5,
 		restaurant: 'El Ritardo',
-		image: require('../../../../../assets/images/food2.png'),
+		image: require('../../../../../../assets/images/food2.png'),
 	},
 	{
 		id: '4',
 		name: 'Sisssy',
 		rating: 4.5,
 		restaurant: 'El Sissy',
-		image: require('../../../../../assets/images/food3.png'),
+		image: require('../../../../../../assets/images/food3.png'),
 	},
 ];

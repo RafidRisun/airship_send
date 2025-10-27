@@ -93,7 +93,7 @@ export default function Index() {
 const currentDelivery = {
 	id: '1',
 	restaurant: 'Maa er Doa Restaurant',
-	image: require('../../../assets/images/food.png'),
+	image: require('../../../../assets/images/food.png'),
 	arrivingIn: '23 mins',
 	status: 'Your order is on the way',
 };

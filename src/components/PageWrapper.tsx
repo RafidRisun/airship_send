@@ -24,7 +24,7 @@ export default function PageWrapper({
 				}}
 			>
 				<View
-					style={tw`flex flex-col w-full flex-1 items-center justify-start bg-white gap-5 p-4 pb-30`}
+					style={tw`flex flex-col w-full flex-1 items-center justify-start bg-white gap-5 p-4 pb-20`}
 				>
 					{children}
 				</View>

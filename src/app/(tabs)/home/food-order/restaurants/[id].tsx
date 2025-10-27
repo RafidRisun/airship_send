@@ -106,7 +106,7 @@ const nearYouData = [
 	{
 		id: '1',
 		name: 'Cafe Ilang Ilang',
-		image: require('../../../../../assets/images/resturant1.png'),
+		image: require('../../../../../../assets/images/resturant1.png'),
 		rating: 4.5,
 		reviews: 120,
 		distance: '0.5 km',
@@ -122,7 +122,7 @@ const nearYouData = [
 	{
 		id: '2',
 		name: 'Pancake House',
-		image: require('../../../../../assets/images/resturant2.png'),
+		image: require('../../../../../../assets/images/resturant2.png'),
 		rating: 4.2,
 		reviews: 95,
 		distance: '1.2 km',
@@ -138,7 +138,7 @@ const nearYouData = [
 	{
 		id: '3',
 		name: 'Jollibee',
-		image: require('../../../../../assets/images/resturant1.png'),
+		image: require('../../../../../../assets/images/resturant1.png'),
 		rating: 4.5,
 		reviews: 120,
 		distance: '0.5 km',
@@ -157,7 +157,7 @@ const recommendedData = [
 	{
 		id: '1',
 		name: 'Sisig',
-		image: require('../../../../../assets/images/food.png'),
+		image: require('../../../../../../assets/images/food.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',
@@ -167,7 +167,7 @@ const recommendedData = [
 	{
 		id: '2',
 		name: 'Pasta',
-		image: require('../../../../../assets/images/food2.png'),
+		image: require('../../../../../../assets/images/food2.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',
@@ -177,7 +177,7 @@ const recommendedData = [
 	{
 		id: '3',
 		name: 'Burger',
-		image: require('../../../../../assets/images/food1.png'),
+		image: require('../../../../../../assets/images/food1.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',
@@ -190,7 +190,7 @@ const forYouData = [
 	{
 		id: '1',
 		name: 'Sisig',
-		image: require('../../../../../assets/images/food.png'),
+		image: require('../../../../../../assets/images/food.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',
@@ -200,7 +200,7 @@ const forYouData = [
 	{
 		id: '2',
 		name: 'Pasta',
-		image: require('../../../../../assets/images/food2.png'),
+		image: require('../../../../../../assets/images/food2.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',
@@ -210,7 +210,7 @@ const forYouData = [
 	{
 		id: '3',
 		name: 'Burger',
-		image: require('../../../../../assets/images/food1.png'),
+		image: require('../../../../../../assets/images/food1.png'),
 		rating: 4.5,
 		reviews: 665,
 		price: '250',

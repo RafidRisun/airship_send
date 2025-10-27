@@ -44,7 +44,7 @@ export default function Index() {
 						Enjoy our offer of the day
 					</Text>
 					<Image
-						source={require('../../../../assets/images/Food_delivery_banner.png')}
+						source={require('../../../../../assets/images/Food_delivery_banner.png')}
 						style={tw`w-1/2 h-full`}
 						contentFit="contain"
 					/>
@@ -52,7 +52,7 @@ export default function Index() {
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-between px-4 w-11/12 h-12 bg-white rounded-lg absolute bottom-0 shadow-md`}
 					onPress={() => {
-						router.push('/services/food-order/searchFood');
+						router.push('/(tabs)/home/food-order/searchFood');
 					}}
 				>
 					<Text style={tw`font-manropeRegular text-sm text-gray`}>
@@ -130,7 +130,7 @@ export default function Index() {
 						key={food.id}
 						style={tw`flex flex-col w-40 bg-white rounded-xl shadow-sm`}
 						onPress={() =>
-							router.push(`/services/food-order/food-item/${food.id}`)
+							router.push(`/(tabs)/home/food-order/food-item/${food.id}`)
 						}
 					>
 						<Image
@@ -183,62 +183,62 @@ const popularCategoriesData = [
 	{
 		id: '1',
 		name: 'Pizza',
-		icon: require('../../../../assets/images/pizza.png'),
+		icon: require('../../../../../assets/images/pizza.png'),
 	},
 	{
 		id: '2',
 		name: 'Burger',
-		icon: require('../../../../assets/images/burger.png'),
+		icon: require('../../../../../assets/images/burger.png'),
 	},
 	{
 		id: '3',
 		name: 'Noodles',
-		icon: require('../../../../assets/images/noodles.png'),
+		icon: require('../../../../../assets/images/noodles.png'),
 	},
 	{
 		id: '4',
 		name: 'Ice Cream',
-		icon: require('../../../../assets/images/ice_cream.png'),
+		icon: require('../../../../../assets/images/ice_cream.png'),
 	},
 	{
 		id: '5',
 		name: 'Cake',
-		icon: require('../../../../assets/images/cake.png'),
+		icon: require('../../../../../assets/images/cake.png'),
 	},
 	{
 		id: '6',
 		name: 'Fried Rice',
-		icon: require('../../../../assets/images/fried_rice.png'),
+		icon: require('../../../../../assets/images/fried_rice.png'),
 	},
 	{
 		id: '7',
 		name: 'Pizza',
-		icon: require('../../../../assets/images/pizza.png'),
+		icon: require('../../../../../assets/images/pizza.png'),
 	},
 	{
 		id: '8',
 		name: 'Burger',
-		icon: require('../../../../assets/images/burger.png'),
+		icon: require('../../../../../assets/images/burger.png'),
 	},
 	{
 		id: '9',
 		name: 'Noodles',
-		icon: require('../../../../assets/images/noodles.png'),
+		icon: require('../../../../../assets/images/noodles.png'),
 	},
 	{
 		id: '10',
 		name: 'Ice Cream',
-		icon: require('../../../../assets/images/ice_cream.png'),
+		icon: require('../../../../../assets/images/ice_cream.png'),
 	},
 	{
 		id: '11',
 		name: 'Cake',
-		icon: require('../../../../assets/images/cake.png'),
+		icon: require('../../../../../assets/images/cake.png'),
 	},
 	{
 		id: '12',
 		name: 'Fried Rice',
-		icon: require('../../../../assets/images/fried_rice.png'),
+		icon: require('../../../../../assets/images/fried_rice.png'),
 	},
 ];
 
@@ -246,7 +246,7 @@ const nearYouData = [
 	{
 		id: '1',
 		name: 'Cafe Ilang Ilang',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 4.5,
 		reviews: 120,
 		distance: '0.5 km',
@@ -255,7 +255,7 @@ const nearYouData = [
 	{
 		id: '2',
 		name: 'Pancake House',
-		image: require('../../../../assets/images/resturant2.png'),
+		image: require('../../../../../assets/images/resturant2.png'),
 		rating: 4.2,
 		reviews: 95,
 		distance: '1.2 km',
@@ -264,7 +264,7 @@ const nearYouData = [
 	{
 		id: '3',
 		name: 'Jollibee',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 4.5,
 		reviews: 120,
 		distance: '0.5 km',
@@ -276,27 +276,27 @@ const popularCategories = [
 	{
 		id: '1',
 		name: 'Italian',
-		icon: require('../../../../assets/images/italian.png'),
+		icon: require('../../../../../assets/images/italian.png'),
 	},
 	{
 		id: '2',
 		name: 'Fast Food',
-		icon: require('../../../../assets/images/fastfood.png'),
+		icon: require('../../../../../assets/images/fastfood.png'),
 	},
 	{
 		id: '3',
 		name: 'Asian',
-		icon: require('../../../../assets/images/asian.png'),
+		icon: require('../../../../../assets/images/asian.png'),
 	},
 	{
 		id: '4',
 		name: 'Sea Food',
-		icon: require('../../../../assets/images/seafood.png'),
+		icon: require('../../../../../assets/images/seafood.png'),
 	},
 	{
 		id: '5',
 		name: 'Vegan',
-		icon: require('../../../../assets/images/vegan.png'),
+		icon: require('../../../../../assets/images/vegan.png'),
 	},
 ];
 
@@ -304,7 +304,7 @@ const forYouData = [
 	{
 		id: '1',
 		name: 'Cheese Burger',
-		image: require('../../../../assets/images/food1.png'),
+		image: require('../../../../../assets/images/food1.png'),
 		time: '25 min',
 		offer: true,
 		previousPrice: 250,
@@ -313,7 +313,7 @@ const forYouData = [
 	{
 		id: '2',
 		name: 'Pepperoni Pizza',
-		image: require('../../../../assets/images/food2.png'),
+		image: require('../../../../../assets/images/food2.png'),
 		time: '30 min',
 		offer: false,
 		previousPrice: 300,
@@ -322,7 +322,7 @@ const forYouData = [
 	{
 		id: '3',
 		name: 'Vegan Salad',
-		image: require('../../../../assets/images/food3.png'),
+		image: require('../../../../../assets/images/food3.png'),
 		time: '20 min',
 		offer: true,
 		previousPrice: 150,

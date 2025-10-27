@@ -20,8 +20,9 @@ export default function TabLayout() {
 				headerShown: false,
 				tabBarShowLabel: false,
 				tabBarStyle: {
-					height: 80, // Fixed height for the tab bar
-					borderTopWidth: 0,
+					height: 90, // Fixed height for the tab bar
+					borderTopWidth: 10,
+					borderTopColor: '#FFFFFF',
 					shadowOffset: { width: 0, height: 0 },
 					shadowColor: 'transparent',
 					elevation: 0,
@@ -31,7 +32,7 @@ export default function TabLayout() {
 			}}
 		>
 			<Tabs.Screen
-				name="index"
+				name="home"
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<View
@@ -175,6 +176,7 @@ export default function TabLayout() {
 					),
 				}}
 			/>
+			{/* <Tabs.Screen name="food-order" options={{ href: null }} /> */}
 		</Tabs>
 	);
 }

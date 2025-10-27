@@ -16,7 +16,7 @@ export default function Index() {
 		const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
 		setTimeout(() => {
 			if (isLoggedIn === 'true') {
-				router.replace('(tabs)');
+				router.replace('/(tabs)/home');
 			} else {
 				router.replace('/onboarding');
 			}

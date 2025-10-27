@@ -28,7 +28,7 @@ export default function SignIn() {
 
 	const handleSignIn = async () => {
 		AsyncStorage.setItem('isLoggedIn', 'true');
-		router.push('(tabs)');
+		router.push('/(tabs)/home');
 	};
 
 	return (
@@ -39,7 +39,7 @@ export default function SignIn() {
 				onSubmit={(values, { setSubmitting }) => {
 					console.log(values); // Handle form submission logic here
 					setSubmitting(false); // Ensure Formik knows submission is complete
-					router.push('(tabs)'); // Navigate after submission is complete
+					router.push('/(tabs)/home'); // Navigate after submission is complete
 				}}
 			>
 				{({

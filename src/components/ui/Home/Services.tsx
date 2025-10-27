@@ -32,7 +32,7 @@ export default function Services() {
 				<View style={tw`flex flex-col w-15 items-center justify-center gap-2`}>
 					<TouchableOpacity
 						style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-						onPress={() => router.push('/services/food-order')}
+						onPress={() => router.push('/(tabs)/home/food-order')}
 					>
 						<SvgXml xml={iconFoodDelivery} />
 					</TouchableOpacity>

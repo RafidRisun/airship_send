@@ -60,7 +60,9 @@ export default function SearchFood() {
 						key={restaurant.id}
 						style={tw`flex flex-col gap-2 w-40`}
 						onPress={() =>
-							router.push(`/services/food-order/restaurants/${restaurant.id}`)
+							router.push(
+								`/(tabs)/home/food-order/restaurants/${restaurant.id}`
+							)
 						}
 					>
 						<Image
@@ -117,7 +119,7 @@ const recommendedForYou = [
 	{
 		id: '1',
 		name: 'El Poco Cantina',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 5.0,
 		cuisine: 'Seafood, Philippine',
 		deliveryTime: '30 mins',
@@ -127,7 +129,7 @@ const recommendedForYou = [
 	{
 		id: '2',
 		name: 'Ma er doa Restaurant',
-		image: require('../../../../assets/images/resturant2.png'),
+		image: require('../../../../../assets/images/resturant2.png'),
 		rating: 4.5,
 		cuisine: 'Italian, Pizza',
 		deliveryTime: '25 mins',
@@ -137,7 +139,7 @@ const recommendedForYou = [
 	{
 		id: '3',
 		name: 'Sushi Place',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 4.8,
 		cuisine: 'Japanese, Sushi',
 		deliveryTime: '20 mins',
@@ -147,7 +149,7 @@ const recommendedForYou = [
 	{
 		id: '4',
 		name: 'Dessert Haven',
-		image: require('../../../../assets/images/resturant2.png'),
+		image: require('../../../../../assets/images/resturant2.png'),
 		rating: 4.9,
 		cuisine: 'Desserts',
 		deliveryTime: '15 mins',
@@ -160,7 +162,7 @@ const allRestaurants = [
 	{
 		id: '1',
 		name: 'El Poco Cantina',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 5.0,
 		reviews: 250,
 		estimatedTime: '30 mins',
@@ -169,7 +171,7 @@ const allRestaurants = [
 	{
 		id: '2',
 		name: 'Ma er doa Restaurant',
-		image: require('../../../../assets/images/resturant2.png'),
+		image: require('../../../../../assets/images/resturant2.png'),
 		rating: 4.5,
 		reviews: 95,
 		estimatedTime: '25 mins',
@@ -178,7 +180,7 @@ const allRestaurants = [
 	{
 		id: '3',
 		name: 'Sushi Place',
-		image: require('../../../../assets/images/resturant1.png'),
+		image: require('../../../../../assets/images/resturant1.png'),
 		rating: 4.8,
 		reviews: 120,
 		estimatedTime: '20 mins',
@@ -187,7 +189,7 @@ const allRestaurants = [
 	{
 		id: '4',
 		name: 'Dessert Haven',
-		image: require('../../../../assets/images/resturant2.png'),
+		image: require('../../../../../assets/images/resturant2.png'),
 		rating: 4.9,
 		reviews: 200,
 		estimatedTime: '15 mins',
