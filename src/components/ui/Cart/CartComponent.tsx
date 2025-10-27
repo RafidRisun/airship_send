@@ -170,7 +170,7 @@ export default function CartComponent() {
 					<Text style={tw`font-manropeRegular`}>₱ {cartDetails.total}</Text>
 				</View>
 			</View>
-			<FullRoundedButton text="Proceed to Payment" onPress={() => {}} />
+			<FullRoundedButton text="Proceed to Checkout" onPress={() => {}} />
 		</PageWrapper>
 	);
 }
