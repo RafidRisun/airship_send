@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import React from 'react';
 
-export default function ShoppingLayout() {
+export default function ProfileLayout() {
 	return (
 		<Stack>
 			<Stack.Screen name="index" />

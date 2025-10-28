@@ -27,7 +27,7 @@ export default function FeaturedRestaurantCard({
 	cuisine: string;
 	deliveryTime: string;
 	distance: string;
-	discount: string;
+	discount?: string;
 }) {
 	const [liked, setLiked] = React.useState(false);
 	return (
@@ -44,11 +44,13 @@ export default function FeaturedRestaurantCard({
 				>
 					<SvgXml xml={liked ? iconLiked : iconLike} />
 				</TouchableOpacity>
-				<View style={tw`absolute bottom-5 left-0 bg-blue px-2 py-1`}>
-					<Text style={tw`text-white font-manropeRegular text-xs`}>
-						{discount}
-					</Text>
-				</View>
+				{discount && (
+					<View style={tw`absolute bottom-5 left-0 bg-blue px-2 py-1`}>
+						<Text style={tw`text-white font-manropeRegular text-xs`}>
+							{discount}
+						</Text>
+					</View>
+				)}
 			</View>
 			<View style={tw`flex flex-col w-full items-center justify-center px-1`}>
 				<View style={tw`flex flex-row items-center justify-between w-full`}>

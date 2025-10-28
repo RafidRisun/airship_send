@@ -176,7 +176,6 @@ export default function TabLayout() {
 					),
 				}}
 			/>
-			{/* <Tabs.Screen name="food-order" options={{ href: null }} /> */}
 		</Tabs>
 	);
 }
