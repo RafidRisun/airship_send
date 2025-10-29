@@ -166,6 +166,30 @@ const popularCategoriesData = [
 		icon: require('../../../../../assets/images/retail_shop.png'),
 		path: '/(tabs)/home/shopping/retailShop',
 	},
+	{
+		id: '5',
+		name: 'Groceries',
+		icon: require('../../../../../assets/images/groceries.png'),
+		path: '/(tabs)/home/shopping/groceries',
+	},
+	{
+		id: '6',
+		name: 'Traditional Market',
+		icon: require('../../../../../assets/images/traditional_market.png'),
+		path: '/(tabs)/home/shopping/traditionalMarket',
+	},
+	{
+		id: '7',
+		name: 'Pharmacy',
+		icon: require('../../../../../assets/images/pharmacy.png'),
+		path: '/(tabs)/home/shopping/pharmacy',
+	},
+	{
+		id: '8',
+		name: 'Retail Shop',
+		icon: require('../../../../../assets/images/retail_shop.png'),
+		path: '/(tabs)/home/shopping/retailShop',
+	},
 ];
 
 const popularShopsData = [

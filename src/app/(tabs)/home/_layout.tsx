@@ -7,6 +7,7 @@ export default function HomeLayout() {
 			<Stack.Screen name="index" />
 			<Stack.Screen name="food-order" />
 			<Stack.Screen name="shopping" />
+			<Stack.Screen name="errands" />
 		</Stack>
 	);
 }

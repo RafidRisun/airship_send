@@ -178,6 +178,26 @@ const popularCategoriesData = [
 		name: 'Sports and Health',
 		icon: require('../../../../../../assets/images/sportsAndHealth.png'),
 	},
+	{
+		id: '5',
+		name: 'Medicines',
+		icon: require('../../../../../../assets/images/medicine.png'),
+	},
+	{
+		id: '6',
+		name: 'Beauty and Care',
+		icon: require('../../../../../../assets/images/beautyAndCare.png'),
+	},
+	{
+		id: '7',
+		name: 'Vitamins',
+		icon: require('../../../../../../assets/images/vitamins.png'),
+	},
+	{
+		id: '8',
+		name: 'Sports and Health',
+		icon: require('../../../../../../assets/images/sportsAndHealth.png'),
+	},
 ];
 
 const nearByStoresData = [

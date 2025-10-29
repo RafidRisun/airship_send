@@ -142,7 +142,7 @@ export default function WritePrescription() {
 						Special Instructions
 					</Text>
 					<TextInput
-						style={tw`border border-lightGray rounded-lg p-2 h-24 text-start `}
+						style={tw`border border-lightGray rounded-lg p-2 h-24`}
 						placeholder="Any special instructions"
 						multiline
 						numberOfLines={4}
