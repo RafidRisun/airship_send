@@ -17,9 +17,19 @@ export default function ShoppingLayout() {
 			/>
 			<Stack.Screen
 				name="shopping-item/[id]"
-				options={{ headerTitle: 'Item Details' }}
+				options={{ headerTitle: 'Product Details' }}
 			/>
 			<Stack.Screen name="shops/[id]" options={{ headerTitle: 'Shop' }} />
+			<Stack.Screen
+				name="traditionalMarket"
+				options={{ headerTitle: 'Traditional Market' }}
+			/>
+			<Stack.Screen name="groceries" options={{ headerTitle: 'Groceries' }} />
+			<Stack.Screen name="pharmacy" options={{ headerShown: false }} />
+			<Stack.Screen
+				name="retailShop"
+				options={{ headerTitle: 'Retail Shop' }}
+			/>
 		</Stack>
 	);
 }

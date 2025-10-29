@@ -54,9 +54,7 @@ export default function Index() {
 						router.push('/(tabs)/home/shopping/searchShoppingItem');
 					}}
 				>
-					<Text style={tw`font-manropeRegular text-sm text-gray`}>
-						Search for groceries
-					</Text>
+					<Text style={tw`font-manropeRegular text-sm text-gray`}>Search</Text>
 					<SvgXml xml={iconSearch} />
 				</TouchableOpacity>
 			</View>
@@ -74,7 +72,9 @@ export default function Index() {
 					>
 						<TouchableOpacity
 							style={tw`flex w-14 h-14 items-center justify-center bg-white shadow-md rounded-full`}
-							//onPress={}
+							onPress={() => {
+								router.push(category.path as any);
+							}}
 						>
 							<Image
 								source={category.icon}
@@ -146,21 +146,25 @@ const popularCategoriesData = [
 		id: '1',
 		name: 'Groceries',
 		icon: require('../../../../../assets/images/groceries.png'),
+		path: '/(tabs)/home/shopping/groceries',
 	},
 	{
 		id: '2',
 		name: 'Traditional Market',
 		icon: require('../../../../../assets/images/traditional_market.png'),
+		path: '/(tabs)/home/shopping/traditionalMarket',
 	},
 	{
 		id: '3',
 		name: 'Pharmacy',
 		icon: require('../../../../../assets/images/pharmacy.png'),
+		path: '/(tabs)/home/shopping/pharmacy',
 	},
 	{
 		id: '4',
 		name: 'Retail Shop',
 		icon: require('../../../../../assets/images/retail_shop.png'),
+		path: '/(tabs)/home/shopping/retailShop',
 	},
 ];
 

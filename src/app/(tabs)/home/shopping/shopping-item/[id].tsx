@@ -34,7 +34,7 @@ export default function ShoppingItem() {
 		<View style={tw`flex flex-1`}>
 			<ScrollView style={tw`flex-1 w-full bg-white`}>
 				<View
-					style={tw`flex flex-col items-center justify-center w-full pb-30`}
+					style={tw`flex flex-col items-center justify-center w-full pb-20`}
 				>
 					<View style={tw`flex w-full`}>
 						<Carousel
@@ -87,7 +87,7 @@ export default function ShoppingItem() {
 									</Text>
 								</View>
 								<View
-									style={tw`flex flex-row w-22 bg-lightGray rounded-full items-center justify-between`}
+									style={tw`flex flex-row w-27 bg-lightGray rounded-full items-center justify-between`}
 								>
 									<TouchableOpacity
 										onPress={() => setQuantity(Math.max(0, quantity - 1))}
@@ -95,7 +95,7 @@ export default function ShoppingItem() {
 										<SvgXml xml={iconRemove} width={26} height={26} />
 									</TouchableOpacity>
 									<Text style={tw`text-base font-manropeRegular`}>
-										{quantity}
+										{quantity} kg
 									</Text>
 									<TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
 										<SvgXml xml={iconAdd} width={26} height={26} />
@@ -132,29 +132,6 @@ export default function ShoppingItem() {
 						</View>
 						<View style={tw`w-full h-0 border-b border-lightGray`} />
 						<View style={tw`flex flex-col w-full`}>
-							<View style={tw`flex flex-row gap-2 items-center`}>
-								<Text style={tw`text-lg font-manropeSemiBold`}>
-									Choose Dressing
-								</Text>
-								<Text style={tw`text-sm text-gray font-manropeRegular`}>
-									Any 3
-								</Text>
-							</View>
-							{product?.dressings.map((dressing, index) => (
-								<View key={index} style={tw`flex flex-col w-full py-2 gap-2`}>
-									<View style={tw`flex flex-row items-center justify-between`}>
-										<Text style={tw`text-sm text-gray font-manropeRegular`}>
-											{dressing}
-										</Text>
-										<TouchableOpacity>
-											<SvgXml xml={iconAdd} />
-										</TouchableOpacity>
-									</View>
-									<View style={tw`w-full h-0 border-b border-lightGray`} />
-								</View>
-							))}
-						</View>
-						<View style={tw`flex flex-col w-full`}>
 							<Text style={tw`text-lg font-manropeSemiBold w-full`}>
 								For you
 							</Text>
@@ -164,18 +141,18 @@ export default function ShoppingItem() {
 								style={tw`w-full`}
 								contentContainerStyle={tw`flex flex-row items-start gap-4 p-2`}
 							>
-								{forYouFood.map(food => (
+								{forYouProducts.map(item => (
 									<TouchableOpacity
-										key={food.id}
+										key={item.id}
 										style={tw`flex flex-col gap-2 w-40`}
 										onPress={() =>
 											router.push(
-												`/(tabs)/home/food-order/food-item/${food.id}`
+												`/(tabs)/home/food-order/food-item/${item.id}`
 											)
 										}
 									>
 										<Image
-											source={food.image}
+											source={item.image}
 											style={tw`w-full h-30 rounded-xl`}
 											contentFit="cover"
 										/>
@@ -187,9 +164,9 @@ export default function ShoppingItem() {
 													style={tw`text-sm font-manropeBold`}
 													numberOfLines={1}
 												>
-													{food.name.length > 14
-														? `${food.name.slice(0, 14)}...`
-														: food.name}
+													{item.name.length > 14
+														? `${item.name.slice(0, 14)}...`
+														: item.name}
 												</Text>
 												<View
 													style={tw`flex flex-row items-center justify-center gap-1`}
@@ -198,12 +175,12 @@ export default function ShoppingItem() {
 													<Text
 														style={tw`font-manropeRegular text-xs text-gray`}
 													>
-														{food.rating.toFixed(1)}
+														{item.rating.toFixed(1)}
 													</Text>
 												</View>
 											</View>
 											<Text style={tw`text-xs text-gray font-manropeRegular`}>
-												{food.restaurant}
+												{item.restaurant}
 											</Text>
 										</View>
 										<TouchableOpacity
@@ -289,33 +266,33 @@ const recommendedData = [
 	},
 ];
 
-const forYouFood = [
+const forYouProducts = [
 	{
 		id: '1',
-		name: 'Sisig',
+		name: 'Banana',
 		rating: 4.5,
 		restaurant: 'El Poco Cantina',
-		image: require('../../../../../../assets/images/food.png'),
+		image: require('../../../../../../assets/images/banana.png'),
 	},
 	{
 		id: '2',
-		name: 'Burger',
+		name: 'Apples',
 		rating: 4.5,
 		restaurant: 'El Coco',
-		image: require('../../../../../../assets/images/food1.png'),
+		image: require('../../../../../../assets/images/apples.png'),
 	},
 	{
 		id: '3',
-		name: 'Pasta',
+		name: 'Carrot',
 		rating: 4.5,
 		restaurant: 'El Ritardo',
-		image: require('../../../../../../assets/images/food2.png'),
+		image: require('../../../../../../assets/images/carrot.png'),
 	},
 	{
 		id: '4',
-		name: 'Sisssy',
+		name: 'Broccoli',
 		rating: 4.5,
 		restaurant: 'El Sissy',
-		image: require('../../../../../../assets/images/food3.png'),
+		image: require('../../../../../../assets/images/brocolli.png'),
 	},
 ];
