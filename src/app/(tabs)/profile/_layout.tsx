@@ -3,8 +3,18 @@ import React from 'react';
 
 export default function ProfileLayout() {
 	return (
-		<Stack>
-			<Stack.Screen name="index" />
+		<Stack
+			screenOptions={{
+				headerTitleAlign: 'center',
+				headerTitleStyle: { fontFamily: 'manropeBold', fontSize: 16 },
+				headerShadowVisible: false,
+			}}
+		>
+			<Stack.Screen name="index" options={{ headerTitle: 'Profile' }} />
+			<Stack.Screen
+				name="editProfile"
+				options={{ headerTitle: 'Edit Profile' }}
+			/>
 		</Stack>
 	);
 }

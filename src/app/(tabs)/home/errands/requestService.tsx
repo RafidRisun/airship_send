@@ -87,7 +87,8 @@ export default function RequestService() {
 									maximumValue={1}
 									minimumTrackTintColor="#017ADF"
 									maximumTrackTintColor="#B0BEC5"
-									thumbImage={require('../../../../../assets/images/thumbImage.png')}
+									// thumbImage={require('../../../../../assets/images/thumbImage.png')}
+									thumbTintColor="#017ADF"
 									value={payAmount}
 									onValueChange={value => setPayAmount(value)}
 								/>
