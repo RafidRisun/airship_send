@@ -18,9 +18,12 @@ import { Image } from 'expo-image';
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
+import PromoModal from './promoModal';
 
 export default function Cart() {
 	const [quantity, setQuantity] = useState(0);
+	const [modalVisible, setModalVisible] = useState(false);
+	const [promo, setPromo] = useState('');
 	return (
 		<PageWrapper>
 			<View style={tw`flex flex-row w-full items-center justify-between`}>
@@ -87,16 +90,25 @@ export default function Cart() {
 			<Divider />
 			<TouchableOpacity
 				style={tw`flex flex-row w-full items-center justify-between bg-white p-4 shadow rounded-lg`}
+				onPress={() => setModalVisible(true)}
 			>
 				<View style={tw`flex flex-row items-center justify-start gap-4`}>
 					<SvgXml xml={iconPromo} />
 					<View style={tw`flex flex-col`}>
-						<Text style={tw`text-sm font-manropeSemiBold`}>
-							Promocode Applied
-						</Text>
-						<Text style={tw`text-xs font-manropeRegular text-green-500`}>
-							You saved ₱ {cartDetails.promocodeDiscount}
-						</Text>
+						{promo === '' ? (
+							<Text style={tw`text-sm font-manropeSemiBold`}>
+								Apply Promocode
+							</Text>
+						) : (
+							<>
+								<Text style={tw`text-sm font-manropeSemiBold`}>
+									Promocode Applied
+								</Text>
+								<Text style={tw`text-xs font-manropeRegular text-green-500`}>
+									You saved ₱ {cartDetails.promocodeDiscount}
+								</Text>
+							</>
+						)}
 					</View>
 				</View>
 				<SvgXml xml={iconEnter} />
@@ -171,6 +183,11 @@ export default function Cart() {
 				</View>
 			</View>
 			<FullRoundedButton text="Proceed to Checkout" onPress={() => {}} />
+			<PromoModal
+				modalVisible={modalVisible}
+				setModalVisible={setModalVisible}
+				setPromo={setPromo}
+			/>
 		</PageWrapper>
 	);
 }
@@ -183,14 +200,14 @@ const cartDetails = {
 		{
 			id: '1',
 			name: 'Pizza',
-			image: require('../../../assets/images/food.png'),
+			image: require('../../../../assets/images/food.png'),
 			quantity: 2,
 			price: 453,
 		},
 		{
 			id: '2',
 			name: 'Burger',
-			image: require('../../../assets/images/food1.png'),
+			image: require('../../../../assets/images/food1.png'),
 			quantity: 1,
 			price: 297,
 		},
