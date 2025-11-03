@@ -16,6 +16,7 @@ export default function ShopsNearYou() {
 				{shopsNearYouData.map(shop => (
 					<ShopsNearYouCards
 						key={shop.id}
+						id={shop.id}
 						name={shop.name}
 						rating={shop.rating}
 						reviews={shop.reviews}

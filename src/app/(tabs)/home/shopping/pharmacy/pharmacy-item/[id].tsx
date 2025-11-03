@@ -21,9 +21,9 @@ import {
 import Carousel from 'react-native-reanimated-carousel';
 import { SvgXml } from 'react-native-svg';
 
-export default function ShoppingItem() {
+export default function PharmacyItem() {
 	const { id } = useLocalSearchParams(); // Extract the `id` parameter
-	const product = recommendedData.find(item => item.id === id);
+	const product = data.find(item => item.id === id);
 	const screenWidth = Dimensions.get('window').width;
 	const [liked, setLiked] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0); // Track the active slide index
@@ -95,7 +95,7 @@ export default function ShoppingItem() {
 										<SvgXml xml={iconRemove} width={26} height={26} />
 									</TouchableOpacity>
 									<Text style={tw`text-base font-manropeRegular`}>
-										{quantity} kg
+										{quantity}
 									</Text>
 									<TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
 										<SvgXml xml={iconAdd} width={26} height={26} />
@@ -141,57 +141,56 @@ export default function ShoppingItem() {
 								style={tw`w-full`}
 								contentContainerStyle={tw`flex flex-row items-start gap-4 p-2`}
 							>
-								{forYouProducts.map(item => (
+								{everyDayEssentials.map(item => (
 									<TouchableOpacity
 										key={item.id}
-										style={tw`flex flex-col gap-2 w-40`}
+										style={tw`flex flex-col w-40 bg-white rounded-xl shadow-sm`}
 										onPress={() =>
 											router.push(
-												`/(tabs)/home/food-order/food-item/${item.id}`
+												`/(tabs)/home/shopping/shopping-item/${item.id}`
 											)
 										}
 									>
 										<Image
 											source={item.image}
-											style={tw`w-full h-30 rounded-xl`}
+											style={tw`w-full h-24 rounded-t-xl`}
 											contentFit="cover"
 										/>
-										<View style={tw`flex flex-col gap-1 w-full`}>
+										<View style={tw`flex flex-col p-2 gap-1`}>
 											<View
-												style={tw`flex flex-row items-start justify-between`}
+												style={tw`flex flex-row items-center justify-between`}
 											>
-												<Text
-													style={tw`text-sm font-manropeBold`}
-													numberOfLines={1}
-												>
-													{item.name.length > 14
-														? `${item.name.slice(0, 14)}...`
-														: item.name}
-												</Text>
-												<View
-													style={tw`flex flex-row items-center justify-center gap-1`}
-												>
-													<SvgXml xml={iconStar} />
+												<View style={tw`flex-1`}>
 													<Text
-														style={tw`font-manropeRegular text-xs text-gray`}
+														style={tw`font-manropeSemiBold text-base capitalize`}
+														numberOfLines={1}
+														ellipsizeMode="tail"
 													>
-														{item.rating.toFixed(1)}
+														{item.name}
 													</Text>
 												</View>
+												<TouchableOpacity>
+													<SvgXml xml={iconAdd} />
+												</TouchableOpacity>
 											</View>
-											<Text style={tw`text-xs text-gray font-manropeRegular`}>
-												{item.restaurant}
+											<Text style={tw`text-xs font-manropeRegular text-gray`}>
+												{item.amount}
 											</Text>
+											<View
+												style={tw`flex flex-row items-end justify-start gap-1`}
+											>
+												{item.offer && (
+													<Text
+														style={tw`text-xs font-manropeRegular text-gray line-through`}
+													>
+														₱ {item.previousPrice}
+													</Text>
+												)}
+												<Text style={tw`text-sm font-manropeBold text-blue`}>
+													₱ {item.price}
+												</Text>
+											</View>
 										</View>
-										<TouchableOpacity
-											style={tw`absolute flex items-center justify-center top-2 right-2 bg-white p-1.5 rounded-full`}
-										>
-											<SvgXml
-												xml={liked ? iconLiked : iconLike}
-												height={10}
-												width={10}
-											/>
-										</TouchableOpacity>
 									</TouchableOpacity>
 								))}
 							</ScrollView>
@@ -220,81 +219,104 @@ export default function ShoppingItem() {
 	);
 }
 
-const recommendedData = [
+const data = [
 	{
 		id: '1',
-		name: 'Banana',
+		name: 'Paracetamol',
 		image: [
-			require('../../../../../../assets/images/banana.png'),
-			require('../../../../../../assets/images/apples.png'),
-			require('../../../../../../assets/images/carrot.png'),
+			require('../../../../../../../assets/images/Paracetamol.jpg'),
+			require('../../../../../../../assets/images/ibuprofen.jpeg'),
+			require('../../../../../../../assets/images/vitaminC.jpg'),
+			require('../../../../../../../assets/images/coughSyrup.jpg'),
 		],
 		rating: 4.5,
-		reviews: 665,
-		price: '250',
+		reviews: 120,
+		price: '150',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate',
-		dressings: ['Soy Sauce', 'Spring Onions', 'Egg', 'Chilli Paste'],
+			'Paracetamol is a common pain reliever and fever reducer used to treat various conditions such as headaches, muscle aches, arthritis, backaches, toothaches, colds, and fevers.',
 	},
 	{
 		id: '2',
-		name: 'Apples',
+		name: 'Ibuprofen',
 		image: [
-			require('../../../../../../assets/images/apples.png'),
-			require('../../../../../../assets/images/banana.png'),
-			require('../../../../../../assets/images/carrot.png'),
+			require('../../../../../../../assets/images/Paracetamol.jpg'),
+			require('../../../../../../../assets/images/ibuprofen.jpeg'),
+			require('../../../../../../../assets/images/vitaminC.jpg'),
+			require('../../../../../../../assets/images/coughSyrup.jpg'),
 		],
-		rating: 4.5,
-		reviews: 665,
-		price: '250',
+		rating: 4.2,
+		reviews: 95,
+		price: '200',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate',
-		dressings: ['Soy Sauce', 'Spring Onions', 'Egg', 'Chilli Paste'],
+			'Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) that helps reduce inflammation, pain, and fever. It is commonly used for conditions such as arthritis, menstrual cramps, and minor injuries.',
 	},
 	{
 		id: '3',
-		name: 'Carrot',
+		name: 'Vitamin C',
 		image: [
-			require('../../../../../../assets/images/carrot.png'),
-			require('../../../../../../assets/images/apples.png'),
-			require('../../../../../../assets/images/banana.png'),
+			require('../../../../../../../assets/images/Paracetamol.jpg'),
+			require('../../../../../../../assets/images/ibuprofen.jpeg'),
+			require('../../../../../../../assets/images/vitaminC.jpg'),
+			require('../../../../../../../assets/images/coughSyrup.jpg'),
 		],
-		rating: 4.5,
-		reviews: 665,
-		price: '250',
+		rating: 4.8,
+		reviews: 150,
+		price: '300',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu felis vulputate',
-		dressings: ['Soy Sauce', 'Spring Onions', 'Egg', 'Chilli Paste'],
-	},
-];
-
-const forYouProducts = [
-	{
-		id: '1',
-		name: 'Banana',
-		rating: 4.5,
-		restaurant: 'El Poco Cantina',
-		image: require('../../../../../../assets/images/banana.png'),
-	},
-	{
-		id: '2',
-		name: 'Apples',
-		rating: 4.5,
-		restaurant: 'El Coco',
-		image: require('../../../../../../assets/images/apples.png'),
-	},
-	{
-		id: '3',
-		name: 'Carrot',
-		rating: 4.5,
-		restaurant: 'El Ritardo',
-		image: require('../../../../../../assets/images/carrot.png'),
+			'Vitamin C is an essential nutrient that supports the immune system, promotes healthy skin, and aids in the absorption of iron from plant-based foods. It is commonly taken as a dietary supplement.',
 	},
 	{
 		id: '4',
-		name: 'Broccoli',
-		rating: 4.5,
-		restaurant: 'El Sissy',
-		image: require('../../../../../../assets/images/brocolli.png'),
+		name: 'Cough Syrup',
+		image: [
+			require('../../../../../../../assets/images/Paracetamol.jpg'),
+			require('../../../../../../../assets/images/ibuprofen.jpeg'),
+			require('../../../../../../../assets/images/vitaminC.jpg'),
+			require('../../../../../../../assets/images/coughSyrup.jpg'),
+		],
+		rating: 4.3,
+		reviews: 80,
+		price: '250',
+		description:
+			'Cough syrup is used to relieve coughing and soothe irritated throats. It may contain ingredients that suppress coughs or help loosen mucus in the airways.',
+	},
+];
+
+const everyDayEssentials = [
+	{
+		id: '1',
+		name: 'Paracetamol 500mg',
+		amount: '20 tablets',
+		price: 50,
+		previousPrice: 70,
+		offer: true,
+		image: require('../../../../../../../assets/images/Paracetamol.jpg'),
+	},
+	{
+		id: '2',
+		name: 'Ibuprofen 400mg',
+		amount: '20 tablets',
+		price: 60,
+		previousPrice: 80,
+		offer: true,
+		image: require('../../../../../../../assets/images/ibuprofen.jpeg'),
+	},
+	{
+		id: '3',
+		name: 'Vitamin C 1000mg',
+		amount: '30 tablets',
+		price: 120,
+		previousPrice: 150,
+		offer: true,
+		image: require('../../../../../../../assets/images/vitaminC.jpg'),
+	},
+	{
+		id: '4',
+		name: 'Cough Syrup 100ml',
+		amount: '100 ml',
+		price: 80,
+		previousPrice: 0,
+		offer: false,
+		image: require('../../../../../../../assets/images/coughSyrup.jpg'),
 	},
 ];

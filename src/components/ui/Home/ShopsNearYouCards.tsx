@@ -1,11 +1,13 @@
 import { iconDistance, iconHalfStar, iconStar, iconTime } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function ShopsNearYouCards({
+	id,
 	name,
 	rating,
 	reviews,
@@ -13,6 +15,7 @@ export default function ShopsNearYouCards({
 	closes,
 	address,
 }: {
+	id: string;
 	name: string;
 	rating: number;
 	reviews: number;
@@ -20,8 +23,12 @@ export default function ShopsNearYouCards({
 	closes: string;
 	address: string;
 }) {
+	const router = useRouter();
 	return (
-		<View style={tw`flex flex-col w-full items-center justify-center gap-4`}>
+		<TouchableOpacity
+			style={tw`flex flex-col w-full items-center justify-center gap-4`}
+			onPress={() => router.push(`/(tabs)/home/food-order/restaurants/${id}`)}
+		>
 			<View style={tw`flex flex-row w-full items-center justify-between`}>
 				<Image
 					source={image}
@@ -66,6 +73,6 @@ export default function ShopsNearYouCards({
 				</View>
 			</View>
 			<View style={tw`w-full h-0 border-t border-lightGray`} />
-		</View>
+		</TouchableOpacity>
 	);
 }

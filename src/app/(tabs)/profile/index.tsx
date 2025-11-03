@@ -1,8 +1,11 @@
 import {
+	iconAddresses,
 	iconEnter,
-	iconHomeAddress,
-	iconRecentAddress,
-	iconWorkAddress,
+	iconHelpCenter,
+	iconLogout,
+	iconNotifications,
+	iconPassword,
+	iconPaymentMethods,
 } from '@/assets/icons';
 import FullRoundedButton from '@/src/components/FullRoundedButton';
 import PageWrapper from '@/src/components/PageWrapper';
@@ -26,60 +29,109 @@ export default function Index() {
 				text="Edit Profile"
 				onPress={() => router.push('/(tabs)/profile/editProfile')}
 			/>
-			<View
-				style={tw`flex flex-col w-full p-4 border border-lightGray rounded-lg gap-4`}
-			>
-				<Text style={tw`text-base font-manropeSemiBold`}>Saved Addresses</Text>
-				<TouchableOpacity style={tw`flex flex-col justify-center gap-2 w-full`}>
-					<View style={tw`flex flex-row gap-2 items-center`}>
-						<SvgXml xml={iconHomeAddress} width={18} height={18} />
-						<Text style={tw`text-base text-blue font-manropeSemiBold`}>
-							Home
+			<View style={tw`flex flex-col w-full gap-4 p-4`}>
+				<TouchableOpacity
+					style={tw`flex flex-row items-center justify-between`}
+					onPress={() => router.push('/(tabs)/profile/address')}
+				>
+					<View style={tw`flex flex-row items-center gap-4`}>
+						<View
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+						>
+							<SvgXml xml={iconAddresses} />
+						</View>
+						<View style={tw`flex flex-col`}>
+							<Text style={tw`text-base font-manropeSemiBold`}>
+								My Addresses
+							</Text>
+							<Text style={tw`text-sm font-manropeRegular text-gray`}>
+								Manage your saved addresses
+							</Text>
+						</View>
+					</View>
+					<SvgXml xml={iconEnter} />
+				</TouchableOpacity>
+
+				<TouchableOpacity
+					style={tw`flex flex-row items-center justify-between`}
+				>
+					<View style={tw`flex flex-row items-center gap-4`}>
+						<View
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+						>
+							<SvgXml xml={iconPaymentMethods} />
+						</View>
+						<View style={tw`flex flex-col`}>
+							<Text style={tw`text-base font-manropeSemiBold`}>
+								Payment Methods
+							</Text>
+							<Text style={tw`text-sm font-manropeRegular text-gray`}>
+								Manage your saved payment methods
+							</Text>
+						</View>
+					</View>
+					<SvgXml xml={iconEnter} />
+				</TouchableOpacity>
+
+				<TouchableOpacity
+					style={tw`flex flex-row items-center justify-between`}
+				>
+					<View style={tw`flex flex-row items-center gap-4`}>
+						<View
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+						>
+							<SvgXml xml={iconNotifications} />
+						</View>
+						<Text style={tw`text-base font-manropeSemiBold`}>
+							Notifications
 						</Text>
 					</View>
-					<Text style={tw`text-sm text-gray font-manropeRegular`}>
-						Puso Ng Maynila Building, 404 A. Mabini Street, Ermita, Metro Manila
-					</Text>
-					<View style={tw`absolute right-2`}>
-						<SvgXml xml={iconEnter} width={18} height={18} />
-					</View>
+					<SvgXml xml={iconEnter} />
 				</TouchableOpacity>
-				<TouchableOpacity style={tw`flex flex-col justify-center gap-2 w-full`}>
-					<View style={tw`flex flex-row gap-2 items-center`}>
-						<SvgXml xml={iconWorkAddress} width={18} height={18} />
-						<Text style={tw`text-base font-manropeSemiBold`}>Work</Text>
-					</View>
-					<Text style={tw`text-sm text-gray font-manropeRegular`}>
-						Philkraft Center, 820 J. P. Rizal Avenue, Makati City, Metro Manila
-					</Text>
-					<View style={tw`absolute right-2`}>
-						<SvgXml xml={iconEnter} width={18} height={18} />
-					</View>
-				</TouchableOpacity>
-			</View>
-			<View
-				style={tw`flex flex-col w-full p-4 border border-lightGray rounded-lg gap-4`}
-			>
-				<Text style={tw`text-base font-manropeSemiBold`}>Recent Addresses</Text>
+
 				<TouchableOpacity
-					style={tw`flex flex-col justify-center gap-2 w-full`}
-					onPress={() => router.push('/(tabs)/profile/editAddress')}
+					style={tw`flex flex-row items-center justify-between`}
 				>
-					<View style={tw`flex flex-row gap-2 items-center`}>
-						<SvgXml xml={iconRecentAddress} width={18} height={18} />
-						<Text style={tw`text-base font-manropeSemiBold`}>Recent 1</Text>
+					<View style={tw`flex flex-row items-center gap-4`}>
+						<View
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+						>
+							<SvgXml xml={iconPassword} />
+						</View>
+						<View style={tw`flex flex-col`}>
+							<Text style={tw`text-base font-manropeSemiBold`}>
+								Password & Security
+							</Text>
+							<Text style={tw`text-sm font-manropeRegular text-gray`}>
+								Manage your password
+							</Text>
+						</View>
 					</View>
-					<Text style={tw`text-sm text-gray font-manropeRegular`}>
-						Puso Ng Maynila Building, 404 A. Mabini Street, Ermita, Metro Manila
-					</Text>
+					<SvgXml xml={iconEnter} />
 				</TouchableOpacity>
-				<TouchableOpacity style={tw`flex flex-col justify-center gap-2 w-full`}>
-					<View style={tw`flex flex-row gap-2 items-center`}>
-						<SvgXml xml={iconRecentAddress} width={18} height={18} />
-						<Text style={tw`text-base font-manropeSemiBold`}>Recent 2</Text>
+
+				<TouchableOpacity
+					style={tw`flex flex-row items-center justify-between`}
+				>
+					<View style={tw`flex flex-row items-center gap-4`}>
+						<View
+							style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+						>
+							<SvgXml xml={iconHelpCenter} />
+						</View>
+						<Text style={tw`text-base font-manropeSemiBold`}>Help Center</Text>
 					</View>
-					<Text style={tw`text-sm text-gray font-manropeRegular`}>
-						Philkraft Center, 820 J. P. Rizal Avenue, Makati City, Metro Manila
+					<SvgXml xml={iconEnter} />
+				</TouchableOpacity>
+
+				<TouchableOpacity style={tw`flex flex-row items-center gap-4`}>
+					<View
+						style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
+					>
+						<SvgXml xml={iconLogout} />
+					</View>
+					<Text style={tw`text-base font-manropeSemiBold text-red-500`}>
+						Logout
 					</Text>
 				</TouchableOpacity>
 			</View>

@@ -23,6 +23,10 @@ export default function PharmacyLayout() {
 				name="writePrescription/[id]"
 				options={{ headerTitle: 'Add Prescription' }}
 			/>
+			<Stack.Screen
+				name="pharmacy-item/[id]"
+				options={{ headerTitle: 'Product Details' }}
+			/>
 		</Stack>
 	);
 }

@@ -2,7 +2,6 @@ import {
 	iconAdd,
 	iconCalendar,
 	iconClock,
-	iconEdit,
 	iconEnter,
 	iconLocation,
 	iconPlus,
@@ -14,37 +13,67 @@ import FullRoundedButton from '@/src/components/FullRoundedButton';
 import PageWrapper from '@/src/components/PageWrapper';
 import Header from '@/src/components/ui/Header';
 import tw from '@/src/lib/tailwind';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { Image } from 'expo-image';
-import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
+import React, { useEffect, useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
+import DeliveryModal from './deliveryModal';
 import PromoModal from './promoModal';
 
 export default function Cart() {
 	const [quantity, setQuantity] = useState(0);
-	const [modalVisible, setModalVisible] = useState(false);
+	const [promoModalVisible, setPromoModalVisible] = useState(false);
+	const [deliveryModalVisible, setDeliveryModalVisible] = useState(false);
 	const [promo, setPromo] = useState('');
+	const [deliveryOption, setDeliveryOption] = useState<
+		'Standard' | 'Priority' | 'VIP'
+	>('Standard');
+	const router = useRouter();
+	const [showDatePicker, setShowDatePicker] = useState(false);
+	const [date, setDate] = useState<Date | null>(null);
+
+	const [deliverCharge, setDeliveryCharge] = useState(0);
+	const [totalAmount, setTotalAmount] = useState(0);
+	useEffect(() => {
+		if (deliveryOption === 'Standard') {
+			setDeliveryCharge(40);
+		} else if (deliveryOption === 'Priority') {
+			setDeliveryCharge(80);
+		} else if (deliveryOption === 'VIP') {
+			setDeliveryCharge(120);
+		}
+
+		setTotalAmount(
+			cartDetails.subtotal + deliverCharge - cartDetails.promocodeDiscount
+		);
+	}, [deliveryOption, deliverCharge]);
+
+	const onChangeTime = (event: any, selectedDate?: Date) => {
+		const currentDate = selectedDate || date;
+		setShowDatePicker(false);
+		setDate(currentDate);
+	};
+
+	// const cartType = useSelector((state: RootState) => state.cartType);
+
 	return (
 		<PageWrapper>
-			<View style={tw`flex flex-row w-full items-center justify-between`}>
-				<View style={tw`flex flex-row items-center justify-start gap-2`}>
-					<View
-						style={tw`flex items-center justify-center p-3 aspect-square rounded-full bg-blue shadow-md`}
-					>
-						<SvgXml xml={iconLocation} />
-					</View>
-					<View style={tw`flex flex-col items-start justify-center gap-1`}>
-						<Text style={tw`font-manropeSemiBold text-sm`}>
-							{cartDetails.user}
-						</Text>
-						<Text style={tw`font-manropeRegular text-xs text-gray`}>
-							{cartDetails.address}
-						</Text>
-					</View>
+			<View style={tw`flex flex-row items-center justify-start gap-2 w-full`}>
+				<View
+					style={tw`flex items-center justify-center p-3 aspect-square rounded-full bg-blue shadow-md`}
+				>
+					<SvgXml xml={iconLocation} />
 				</View>
-				<TouchableOpacity>
-					<SvgXml xml={iconEdit} />
-				</TouchableOpacity>
+				<View style={tw`flex flex-col items-start justify-center gap-1`}>
+					<Text style={tw`font-manropeSemiBold text-sm`}>
+						{cartDetails.user}
+					</Text>
+					<Text style={tw`font-manropeRegular text-xs text-gray`}>
+						{cartDetails.address}
+					</Text>
+				</View>
 			</View>
 			<Header title="Your Order" />
 			<View style={tw`flex flex-col w-full items-center justify-center gap-4`}>
@@ -90,7 +119,7 @@ export default function Cart() {
 			<Divider />
 			<TouchableOpacity
 				style={tw`flex flex-row w-full items-center justify-between bg-white p-4 shadow rounded-lg`}
-				onPress={() => setModalVisible(true)}
+				onPress={() => setPromoModalVisible(true)}
 			>
 				<View style={tw`flex flex-row items-center justify-start gap-4`}>
 					<SvgXml xml={iconPromo} />
@@ -102,7 +131,7 @@ export default function Cart() {
 						) : (
 							<>
 								<Text style={tw`text-sm font-manropeSemiBold`}>
-									Promocode Applied
+									Promocode Applied: {promo}
 								</Text>
 								<Text style={tw`text-xs font-manropeRegular text-green-500`}>
 									You saved ₱ {cartDetails.promocodeDiscount}
@@ -117,26 +146,51 @@ export default function Cart() {
 			<View style={tw`flex flex-row w-full items-center justify-center gap-4`}>
 				<TouchableOpacity
 					style={tw`flex flex-row flex-1 items-center justify-center gap-3 bg-white py-3 rounded-lg shadow-md`}
+					onPress={() => setDeliveryModalVisible(true)}
 				>
 					<SvgXml xml={iconClock} />
 					<View style={tw`flex flex-col items-center justify-start gap-1`}>
-						<Text style={tw`text-sm font-manropeSemiBold`}>Standard</Text>
+						<Text style={tw`text-sm font-manropeSemiBold`}>
+							{deliveryOption}
+						</Text>
 						<Text style={tw`text-xs font-manropeRegular text-gray`}>
-							25-30 mins
+							{deliveryOption === 'Standard'
+								? '30-45 mins'
+								: deliveryOption === 'Priority'
+								? '15-25 mins'
+								: '5-10 mins'}
 						</Text>
 					</View>
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={tw`flex flex-row flex-1 items-center justify-center gap-3 bg-white py-3 rounded-lg shadow-md`}
+					onPress={() => {
+						setShowDatePicker(true);
+					}}
 				>
 					<SvgXml xml={iconCalendar} />
 					<View style={tw`flex flex-col items-center justify-start gap-1`}>
 						<Text style={tw`text-sm font-manropeSemiBold`}>Schedule</Text>
 						<Text style={tw`text-xs font-manropeRegular text-gray`}>
-							Select time
+							{date
+								? date.toLocaleTimeString([], {
+										hour: '2-digit',
+										minute: '2-digit',
+								  })
+								: 'Select Time'}
 						</Text>
 					</View>
 				</TouchableOpacity>
+				{showDatePicker && (
+					<DateTimePicker
+						value={date || new Date()}
+						mode="time"
+						display="spinner"
+						onChange={onChangeTime}
+						style={tw`w-full`}
+						maximumDate={new Date()}
+					/>
+				)}
 			</View>
 			<View
 				style={tw`flex flex-col w-full items-center border border-lightGray rounded-lg p-4 gap-2`}
@@ -166,7 +220,7 @@ export default function Cart() {
 						Delivery Charge
 					</Text>
 					<Text style={tw`text-sm text-gray font-manropeRegular`}>
-						₱ {cartDetails.deliveryFee}
+						₱ {deliverCharge}
 					</Text>
 				</View>
 				<View style={tw`flex flex-row items-center justify-between`}>
@@ -179,14 +233,24 @@ export default function Cart() {
 				</View>
 				<View style={tw`flex flex-row items-center justify-between`}>
 					<Text style={tw`font-manropeRegular`}>Total</Text>
-					<Text style={tw`font-manropeRegular`}>₱ {cartDetails.total}</Text>
+					<Text style={tw`font-manropeRegular`}>₱ {totalAmount}</Text>
 				</View>
 			</View>
-			<FullRoundedButton text="Proceed to Checkout" onPress={() => {}} />
+			<FullRoundedButton
+				text="Proceed to Checkout"
+				onPress={() => {
+					router.navigate('/(tabs)/order');
+				}}
+			/>
 			<PromoModal
-				modalVisible={modalVisible}
-				setModalVisible={setModalVisible}
+				modalVisible={promoModalVisible}
+				setPromoModalVisible={setPromoModalVisible}
 				setPromo={setPromo}
+			/>
+			<DeliveryModal
+				modalVisible={deliveryModalVisible}
+				setDeliveryModalVisible={setDeliveryModalVisible}
+				setDeliveryOption={setDeliveryOption}
 			/>
 		</PageWrapper>
 	);
@@ -213,7 +277,5 @@ const cartDetails = {
 		},
 	],
 	subtotal: 750,
-	deliveryFee: 40,
 	promocodeDiscount: 50,
-	total: 740,
 };

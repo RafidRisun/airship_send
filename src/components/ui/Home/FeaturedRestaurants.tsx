@@ -14,6 +14,7 @@ export default function FeaturedRestaurants() {
 			</View>
 			<View style={tw`flex flex-row w-full items-center justify-between gap-2`}>
 				<FeaturedRestaurantCard
+					id={featuredRestaurants[0].id}
 					name={featuredRestaurants[0].name}
 					image={featuredRestaurants[0].image}
 					rating={featuredRestaurants[0].rating}
@@ -24,6 +25,7 @@ export default function FeaturedRestaurants() {
 				/>
 				<View style={tw`h-35 w-0 border-l border-lightGray m-1`} />
 				<FeaturedRestaurantCard
+					id={featuredRestaurants[1].id}
 					name={featuredRestaurants[1].name}
 					image={featuredRestaurants[1].image}
 					rating={featuredRestaurants[1].rating}

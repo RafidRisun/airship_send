@@ -8,11 +8,13 @@ import {
 } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function FeaturedRestaurantCard({
+	id,
 	name,
 	image,
 	rating,
@@ -21,6 +23,7 @@ export default function FeaturedRestaurantCard({
 	distance,
 	discount,
 }: {
+	id: string;
 	name: string;
 	image: any;
 	rating: number;
@@ -30,8 +33,12 @@ export default function FeaturedRestaurantCard({
 	discount?: string;
 }) {
 	const [liked, setLiked] = React.useState(false);
+	const router = useRouter();
 	return (
-		<View style={tw`flex flex-col flex-1 items-center justify-center`}>
+		<TouchableOpacity
+			style={tw`flex flex-col flex-1 items-center justify-center`}
+			onPress={() => router.push(`/(tabs)/home/food-order/restaurants/${id}`)}
+		>
 			<View style={tw`flex w-full p-2 items-center justify-center`}>
 				<Image
 					source={image}
@@ -89,6 +96,6 @@ export default function FeaturedRestaurantCard({
 					</View>
 				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 }

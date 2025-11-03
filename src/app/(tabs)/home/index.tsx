@@ -9,12 +9,14 @@ import Services from '@/src/components/ui/Home/Services';
 import ShopsNearYou from '@/src/components/ui/Home/ShopsNearYou';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
 	Keyboard,
 	ScrollView,
 	Text,
+	TouchableOpacity,
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';
@@ -24,6 +26,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { SvgXml } from 'react-native-svg';
 
 export default function Index() {
+	const router = useRouter();
 	return (
 		<SafeAreaView style={tw`flex flex-1 bg-white`}>
 			<StatusBar style="dark" />
@@ -54,7 +57,10 @@ export default function Index() {
 				</TouchableWithoutFeedback>
 			</ScrollView>
 			{currentDelivery && (
-				<View style={tw`flex px-4 absolute bottom-2 w-full`}>
+				<TouchableOpacity
+					style={tw`flex px-4 absolute bottom-2 w-full`}
+					onPress={() => router.navigate('/(tabs)/order')}
+				>
 					<View
 						style={tw`flex flex-row items-center justify-between p-3 gap-3 bg-white shadow-sm rounded-xl`}
 					>
@@ -84,7 +90,7 @@ export default function Index() {
 							</Text>
 						</View>
 					</View>
-				</View>
+				</TouchableOpacity>
 			)}
 		</SafeAreaView>
 	);

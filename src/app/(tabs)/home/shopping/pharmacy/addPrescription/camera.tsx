@@ -1,6 +1,7 @@
 import tw from '@/src/lib/tailwind';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -8,6 +9,7 @@ export default function App() {
 	const [permission, requestPermission] = useCameraPermissions();
 	const ref = useRef<CameraView>(null);
 	const [uri, setUri] = useState<string | null>(null);
+	const router = useRouter();
 
 	if (!permission) {
 		return null;
@@ -37,8 +39,12 @@ export default function App() {
 					contentFit="contain"
 					style={{ width: 300, aspectRatio: 1 }}
 				/>
-				<Button onPress={() => setUri(null)} title="Upload Prescription" />
+				<Button
+					onPress={() => router.push('/(tabs)/cart')}
+					title="Upload Prescription"
+				/>
 				<Button onPress={() => setUri(null)} title="Take another picture" />
+				<Button onPress={() => router.back()} title="Cancel" />
 			</View>
 		);
 	};

@@ -19,6 +19,7 @@ export default function ProfileLayout() {
 				name="editAddress"
 				options={{ headerTitle: 'Edit Address' }}
 			/>
+			<Stack.Screen name="address" options={{ headerTitle: 'My Addresses' }} />
 		</Stack>
 	);
 }

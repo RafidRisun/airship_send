@@ -15,11 +15,11 @@ import { SvgXml } from 'react-native-svg';
 
 export default function PromoModal({
 	modalVisible,
-	setModalVisible,
+	setPromoModalVisible,
 	setPromo,
 }: {
 	modalVisible: boolean;
-	setModalVisible: (visible: boolean) => void;
+	setPromoModalVisible: (visible: boolean) => void;
 	setPromo: (promo: string) => void;
 }) {
 	const [promo, setLocalPromo] = useState('');
@@ -33,11 +33,12 @@ export default function PromoModal({
 				backdropColor="black"
 				backdropOpacity={0.5}
 				isVisible={modalVisible}
+				avoidKeyboard
 			>
 				<View style={tw`flex flex-col bg-white rounded-xl gap-2 p-4`}>
 					<TouchableOpacity
 						style={tw`absolute top-4 right-4 z-50`}
-						onPress={() => setModalVisible(false)}
+						onPress={() => setPromoModalVisible(false)}
 					>
 						<SvgXml xml={iconClose} />
 					</TouchableOpacity>
@@ -55,7 +56,7 @@ export default function PromoModal({
 						text="Apply"
 						onPress={() => {
 							setPromo(promo);
-							setModalVisible(false);
+							setPromoModalVisible(false);
 						}}
 					/>
 				</View>

@@ -229,12 +229,13 @@ export default function FoodItem() {
 			>
 				<TouchableOpacity
 					style={tw`flex items-center justify-center bg-blue p-3 rounded-full flex-1`}
-					onPress={() => setModalVisible(true)}
+					onPress={() => router.navigate('/(tabs)/cart')}
 				>
 					<Text style={tw`text-white font-manropeSemiBold`}>Buy Now</Text>
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-center bg-white border border-blue p-3 rounded-full flex-1 gap-2`}
+					onPress={() => setModalVisible(true)}
 				>
 					<SvgXml xml={iconCartBLue} />
 					<Text style={tw`text-blue font-manropeSemiBold`}>Add to Cart</Text>

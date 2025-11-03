@@ -120,6 +120,7 @@ export default function Index() {
 			<Header title="Featured Shops" seeAll />
 			<View style={tw`flex flex-row w-full items-center justify-between gap-2`}>
 				<FeaturedRestaurantCard
+					id={featuredShops[0].id}
 					name={featuredShops[0].name}
 					image={featuredShops[0].image}
 					rating={featuredShops[0].rating}
@@ -129,6 +130,7 @@ export default function Index() {
 				/>
 				<View style={tw`h-35 w-0 border-l border-lightGray m-1`} />
 				<FeaturedRestaurantCard
+					id={featuredShops[1].id}
 					name={featuredShops[1].name}
 					image={featuredShops[1].image}
 					rating={featuredShops[1].rating}

@@ -111,7 +111,9 @@ export default function Pharmacy() {
 						key={item.id}
 						style={tw`flex flex-col w-40 bg-white rounded-xl shadow-sm`}
 						onPress={() =>
-							router.push(`/(tabs)/home/shopping/shopping-item/${item.id}`)
+							router.push(
+								`/(tabs)/home/shopping/pharmacy/pharmacy-item/${item.id}`
+							)
 						}
 					>
 						<Image

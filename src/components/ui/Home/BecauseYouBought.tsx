@@ -1,13 +1,22 @@
 import { iconHalfStar, iconStar } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function BecauseYouBought() {
+	const router = useRouter();
 	return (
-		<View style={tw`flex flex-col w-full gap-2 items-center justify-center`}>
+		<TouchableOpacity
+			style={tw`flex flex-col w-full gap-2 items-center justify-center`}
+			onPress={() =>
+				router.push(
+					`/(tabs)/home/food-order/food-item/${bczYouBoughtData[0].id}`
+				)
+			}
+		>
 			<View style={tw`flex flex-row w-full items-center justify-between`}>
 				<Text style={tw`text-lg font-manropeSemiBold text-black`}>
 					Because you bought
@@ -51,7 +60,7 @@ export default function BecauseYouBought() {
 					contentFit="cover"
 				/>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 }
 
