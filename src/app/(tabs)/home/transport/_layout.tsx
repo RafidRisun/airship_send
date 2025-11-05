@@ -11,6 +11,10 @@ export default function TransportLayout() {
 			}}
 		>
 			<Stack.Screen name="index" options={{ headerTitle: 'Transport' }} />
+			<Stack.Screen
+				name="map"
+				options={{ headerTransparent: true, headerTitle: '' }}
+			/>
 		</Stack>
 	);
 }
