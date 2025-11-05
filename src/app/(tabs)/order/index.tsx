@@ -98,7 +98,7 @@ export default function Order() {
 							/>
 						</View>
 						<View style={tw`flex flex-col ml-4`}>
-							<Text style={tw`text-base font-manropeBold`}>Zoye Trivianni</Text>
+							<Text style={tw`text-base font-manropeBold`}>Zohran Mamdani</Text>
 							<Text style={tw`text-sm font-manropeRegular text-gray`}>
 								Plate No. ABC-1234
 							</Text>

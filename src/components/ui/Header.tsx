@@ -1,6 +1,6 @@
 import tw from '@/src/lib/tailwind';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function Header({
 	title,
@@ -13,7 +13,11 @@ export default function Header({
 		<View style={tw`flex flex-row w-full items-center justify-between`}>
 			<Text style={tw`text-lg font-manropeSemiBold text-black`}>{title}</Text>
 			{seeAll && (
-				<Text style={tw`text-base font-manropeRegular text-gray`}>See all</Text>
+				<TouchableOpacity>
+					<Text style={tw`text-base font-manropeRegular text-gray`}>
+						See all
+					</Text>
+				</TouchableOpacity>
 			)}
 		</View>
 	);

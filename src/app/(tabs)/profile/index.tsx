@@ -13,10 +13,24 @@ import tw from '@/src/lib/tailwind';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function Index() {
+	const createLogoutAlert = () => {
+		Alert.alert('Logout', 'Are you sure you want to logout?', [
+			{
+				text: 'Cancel',
+				onPress: () => console.log('Cancel Pressed'),
+				style: 'cancel',
+			},
+			{
+				text: 'Logout',
+				onPress: () => router.replace('/auth/sign-in'),
+			},
+		]);
+	};
+
 	const router = useRouter();
 	return (
 		<PageWrapper>
@@ -24,7 +38,7 @@ export default function Index() {
 				source={require('../../../../assets/images/profile photo.jpg')}
 				style={tw`w-40 h-40 rounded-full`}
 			/>
-			<Text style={tw`text-lg font-manropeSemiBold`}>Zoe Trivianni</Text>
+			<Text style={tw`text-lg font-manropeSemiBold`}>Zohran Mamdani</Text>
 			<FullRoundedButton
 				text="Edit Profile"
 				onPress={() => router.push('/(tabs)/profile/editProfile')}
@@ -54,6 +68,7 @@ export default function Index() {
 
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-between`}
+					onPress={() => router.push('/(tabs)/profile/paymentMethod')}
 				>
 					<View style={tw`flex flex-row items-center gap-4`}>
 						<View
@@ -75,6 +90,7 @@ export default function Index() {
 
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-between`}
+					onPress={() => router.push('/(tabs)/profile/notification')}
 				>
 					<View style={tw`flex flex-row items-center gap-4`}>
 						<View
@@ -91,6 +107,7 @@ export default function Index() {
 
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-between`}
+					onPress={() => router.push('/(tabs)/profile/passwordAndSecurity')}
 				>
 					<View style={tw`flex flex-row items-center gap-4`}>
 						<View
@@ -112,6 +129,7 @@ export default function Index() {
 
 				<TouchableOpacity
 					style={tw`flex flex-row items-center justify-between`}
+					onPress={() => router.push('/(tabs)/profile/helpCenter')}
 				>
 					<View style={tw`flex flex-row items-center gap-4`}>
 						<View
@@ -124,7 +142,10 @@ export default function Index() {
 					<SvgXml xml={iconEnter} />
 				</TouchableOpacity>
 
-				<TouchableOpacity style={tw`flex flex-row items-center gap-4`}>
+				<TouchableOpacity
+					style={tw`flex flex-row items-center gap-4`}
+					onPress={createLogoutAlert}
+				>
 					<View
 						style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 					>

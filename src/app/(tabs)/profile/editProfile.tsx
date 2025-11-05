@@ -160,8 +160,8 @@ export default function EditProfile() {
 }
 
 const userData = {
-	name: 'Zoe Trivianni',
-	email: 'zoe.trivianni@example.com',
+	name: 'Zohran Mamdani',
+	email: 'zohran.mamdani@example.com',
 	phone: '+1 (555) 123-4567',
 	dateOfBirth: new Date(1996, 10, 17),
 };

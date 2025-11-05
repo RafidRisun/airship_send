@@ -101,7 +101,7 @@ export default function OrderDetails() {
 					<View style={tw`flex flex-col`}>
 						<Text style={tw`text-sm font-manropeRegular`}>Rider Name</Text>
 						<Text style={tw`text-xs font-manropeRegular text-gray`}>
-							Ghost Rider
+							Zohran Mamdani
 						</Text>
 					</View>
 				</View>
