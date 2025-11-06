@@ -9,11 +9,21 @@ import {
 import FullRoundedButton from '@/src/components/FullRoundedButton';
 import PageWrapper from '@/src/components/PageWrapper';
 import tw from '@/src/lib/tailwind';
-import React from 'react';
-import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function OrderDetails() {
+	const [cancelPressed, setCancelPressed] = useState(false);
+	const [cancelReason, setCancelReason] = useState<
+		| 'Changed my mind'
+		| 'Delivery time too long'
+		| 'Payment issue'
+		| 'Other reasons'
+		| ''
+	>('');
+	const router = useRouter();
 	return (
 		<PageWrapper>
 			<View style={tw`flex flex-row w-full items-center gap-4`}>
@@ -157,7 +167,127 @@ export default function OrderDetails() {
 					</View>
 				</View>
 			</View>
-			<FullRoundedButton text="Cancel Order" onPress={() => {}} />
+			{cancelPressed && (
+				<>
+					<View
+						style={tw`flex flex-col w-full gap-4 p-4 border border-lightGray rounded-xl`}
+					>
+						<Text style={tw`text-sm font-manropeSemiBold`}>
+							Why are you cancelling?
+						</Text>
+						<View style={tw`flex flex-col w-full gap-3 px-2`}>
+							<TouchableOpacity
+								style={tw`flex flex-row items-center gap-4`}
+								onPress={() => setCancelReason('Changed my mind')}
+							>
+								{cancelReason === 'Changed my mind' ? (
+									<View
+										style={tw`w-4 h-4 bg-blue rounded-full flex items-center justify-center`}
+									>
+										<View style={tw`w-2 h-2 bg-white rounded-full`} />
+									</View>
+								) : (
+									<View
+										style={tw`w-4 h-4 bg-lightGray rounded-full flex items-center justify-center`}
+									/>
+								)}
+								<Text style={tw`text-sm font-manropeRegular`}>
+									Changed my mind
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={tw`flex flex-row items-center gap-4`}
+								onPress={() => setCancelReason('Delivery time too long')}
+							>
+								{cancelReason === 'Delivery time too long' ? (
+									<View
+										style={tw`w-4 h-4 bg-blue rounded-full flex items-center justify-center`}
+									>
+										<View style={tw`w-2 h-2 bg-white rounded-full`} />
+									</View>
+								) : (
+									<View
+										style={tw`w-4 h-4 bg-lightGray rounded-full flex items-center justify-center`}
+									/>
+								)}
+								<Text style={tw`text-sm font-manropeRegular`}>
+									Delivery time too long
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={tw`flex flex-row items-center gap-4`}
+								onPress={() => setCancelReason('Payment issue')}
+							>
+								{cancelReason === 'Payment issue' ? (
+									<View
+										style={tw`w-4 h-4 bg-blue rounded-full flex items-center justify-center`}
+									>
+										<View style={tw`w-2 h-2 bg-white rounded-full`} />
+									</View>
+								) : (
+									<View
+										style={tw`w-4 h-4 bg-lightGray rounded-full flex items-center justify-center`}
+									/>
+								)}
+								<Text style={tw`text-sm font-manropeRegular`}>
+									Payment issue
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={tw`flex flex-row items-center gap-4`}
+								onPress={() => setCancelReason('Other reasons')}
+							>
+								{cancelReason === 'Other reasons' ? (
+									<View
+										style={tw`w-4 h-4 bg-blue rounded-full flex items-center justify-center`}
+									>
+										<View style={tw`w-2 h-2 bg-white rounded-full`} />
+									</View>
+								) : (
+									<View
+										style={tw`w-4 h-4 bg-lightGray rounded-full flex items-center justify-center`}
+									/>
+								)}
+								<Text style={tw`text-sm font-manropeRegular`}>
+									Other reasons
+								</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+					<TextInput
+						style={tw`w-full h-25 border border-lightGray rounded-md p-3`}
+						placeholder="Tell us more about your cancellation (Optional)"
+						multiline
+						numberOfLines={6}
+						textAlignVertical="top" // Aligns the placeholder and text to the top
+					/>
+				</>
+			)}
+			{cancelPressed ? (
+				<View style={tw`flex w-full items-center gap-2`}>
+					<FullRoundedButton
+						text="Cancel Order"
+						onPress={() => {
+							router.navigate('/(tabs)/home');
+						}}
+					/>
+					<TouchableOpacity
+						style={tw`bg-white border border-blue py-3 rounded-full w-full flex justify-center items-center`}
+						onPress={() => setCancelPressed(false)}
+					>
+						<Text style={tw`font-manropeSemiBold text-blue text-base`}>
+							Keep Order
+						</Text>
+					</TouchableOpacity>
+				</View>
+			) : (
+				<FullRoundedButton
+					text="Cancel Order"
+					onPress={() => {
+						setCancelPressed(true);
+					}}
+				/>
+			)}
 		</PageWrapper>
 	);
 }

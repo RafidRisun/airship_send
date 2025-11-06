@@ -13,10 +13,16 @@ import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Linking, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 export default function Order() {
+	const phoneNumber = '0123456789';
+
+	const makeCall = () => {
+		Linking.openURL(`tel:${phoneNumber}`);
+	};
+
 	return (
 		<View style={tw`flex flex-col flex-1 w-full bg-white`}>
 			<View
@@ -135,6 +141,7 @@ export default function Order() {
 						</View>
 						<TouchableOpacity
 							style={tw`absolute bottom-0 right-0 flex items-center justify-center p-3 bg-blue rounded-full shadow-md`}
+							onPress={makeCall}
 						>
 							<SvgXml xml={iconCall} />
 						</TouchableOpacity>

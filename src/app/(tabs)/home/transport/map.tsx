@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
 	Keyboard,
 	KeyboardAvoidingView,
+	Linking,
 	Text,
 	TouchableOpacity,
 	TouchableWithoutFeedback,
@@ -109,6 +110,12 @@ export default function Map() {
 	const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
 		null
 	);
+
+	const phoneNumber = '0123456789';
+
+	const makeCall = () => {
+		Linking.openURL(`tel:${phoneNumber}`);
+	};
 
 	return (
 		<KeyboardAvoidingView style={tw`flex-1`} behavior="padding">
@@ -501,6 +508,7 @@ export default function Map() {
 										</View>
 										<TouchableOpacity
 											style={tw`flex items-center justify-center p-3 bg-blue rounded-full shadow-md`}
+											onPress={makeCall}
 										>
 											<SvgXml xml={iconCall} />
 										</TouchableOpacity>
@@ -537,7 +545,7 @@ export default function Map() {
 									</View>
 									<FullRoundedButton
 										text="Cancel Ride"
-										onPress={() => setCurrentContext('ChooseVehicle')}
+										onPress={() => setCurrentContext('LocationSet')}
 									/>
 								</>
 							)}
