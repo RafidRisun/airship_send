@@ -106,6 +106,10 @@ export default function Map() {
 
 	const [arriveProgress, setArriveProgress] = useState<number>(0);
 
+	const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
+		null
+	);
+
 	return (
 		<KeyboardAvoidingView style={tw`flex-1`} behavior="padding">
 			<TouchableWithoutFeedback
@@ -291,7 +295,12 @@ export default function Map() {
 											style={tw`flex flex-col w-full gap-4`}
 										>
 											<TouchableOpacity
-												style={tw`flex flex-row flex-1 gap-4 items-center justify-between`}
+												style={tw`flex flex-row flex-1 gap-4 items-center justify-between ${
+													selectedVehicleId === vehicle.id
+														? 'border border-blue p-4 rounded-lg'
+														: ''
+												}`}
+												onPress={() => setSelectedVehicleId(vehicle.id)}
 											>
 												<View style={tw`flex flex-row items-center gap-4`}>
 													{vehicle.type === 'Van' && (
@@ -316,7 +325,13 @@ export default function Map() {
 														/>
 													)}
 													<View style={tw`flex flex-col`}>
-														<Text style={tw`font-manropeSemiBold text-sm`}>
+														<Text
+															style={tw`font-manropeSemiBold text-sm ${
+																selectedVehicleId === vehicle.id
+																	? 'text-blue'
+																	: 'text-black'
+															}`}
+														>
 															{vehicle.type}
 														</Text>
 														<Text
