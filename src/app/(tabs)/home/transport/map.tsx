@@ -53,6 +53,7 @@ export default function Map() {
 
 		let location = await Location.getCurrentPositionAsync({});
 		setLocation(JSON.stringify(location));
+		setGetLocationPressed(false);
 	};
 
 	let text = 'Waiting...';
@@ -168,7 +169,10 @@ export default function Map() {
 													value={getLocationPressed ? text : location}
 													onChangeText={value => setLocation(value)}
 												/>
-												<TouchableOpacity onPress={getUserLocation}>
+												<TouchableOpacity
+													onPress={getUserLocation}
+													style={tw`flex items-center justify-center p-2`}
+												>
 													<SvgXml xml={iconDetectLocation} />
 												</TouchableOpacity>
 											</View>
@@ -277,7 +281,10 @@ export default function Map() {
 													value={getLocationPressed ? text : location}
 													onChangeText={value => setLocation(value)}
 												/>
-												<TouchableOpacity onPress={getUserLocation}>
+												<TouchableOpacity
+													onPress={getUserLocation}
+													style={tw`flex items-center justify-center p-2`}
+												>
 													<SvgXml xml={iconDetectLocation} />
 												</TouchableOpacity>
 											</View>
@@ -575,7 +582,7 @@ const recentLocations = [
 	{
 		id: 3,
 		from: '654 Cedar St',
-		place: 'Home',
+		place: 'Cafe',
 		to: '987 Birch Blvd',
 		date: '2024-06-13',
 	},
