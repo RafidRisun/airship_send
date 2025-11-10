@@ -110,11 +110,11 @@ export default function Index() {
 					<View
 						style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 					>
-						<Image
-							source={require('../../../../../assets/images/Van.png')}
+						{/* <Image
+							source={require('../../../../../assets/images/van.png')}
 							style={tw`w-10 h-10`}
 							contentFit="contain"
-						/>
+						/> */}
 					</View>
 					<View style={tw`flex flex-col gap-2`}>
 						<Text style={tw`text-sm font-manropeSemiBold`}>

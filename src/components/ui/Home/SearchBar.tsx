@@ -12,13 +12,13 @@ export default function SearchBar({
 	onChange?: (text: string) => void;
 }) {
 	return (
-		<View style={tw`flex flex-row w-full items-center justify-center gap-2`}>
+		<View style={tw`flex flex-row w-full items-center justify-center gap-2 `}>
 			<View
 				style={tw`flex flex-row flex-1 items-center justify-between bg-lightGray rounded-full px-4`}
 			>
 				<TextInput
 					placeholder={placeholder || 'Search for food'}
-					style={tw`flex-1`}
+					style={tw`flex-1 h-[44px]`}
 					onChangeText={onChange}
 				/>
 				<SvgXml xml={iconSearch} />

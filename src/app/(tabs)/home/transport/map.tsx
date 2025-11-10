@@ -135,7 +135,7 @@ export default function Map() {
 						</TouchableOpacity>
 					)}
 					<Image
-						source={require('../../../../../assets/images/map.png')}
+						source={require('@/assets/images/map.png')}
 						style={{ flex: 1 }}
 					/>
 					<BottomSheet
@@ -209,8 +209,8 @@ export default function Map() {
 																location.label === 'Home'
 																	? iconHomeAddress
 																	: location.label === 'Work'
-																	? iconWorkBlue
-																	: iconDropDestination
+																		? iconWorkBlue
+																		: iconDropDestination
 															}
 														/>
 													</View>
@@ -309,42 +309,40 @@ export default function Map() {
 											style={tw`flex flex-col w-full gap-4`}
 										>
 											<TouchableOpacity
-												style={tw`flex flex-row flex-1 gap-4 items-center justify-between ${
-													selectedVehicleId === vehicle.id
-														? 'border border-blue p-4 rounded-lg'
-														: ''
-												}`}
+												style={tw`flex flex-row flex-1 gap-4 items-center justify-between ${selectedVehicleId === vehicle.id
+													? 'border border-blue p-4 rounded-lg'
+													: ''
+													}`}
 												onPress={() => setSelectedVehicleId(vehicle.id)}
 											>
 												<View style={tw`flex flex-row items-center gap-4`}>
-													{vehicle.type === 'Van' && (
+													{/* {vehicle.type === 'Van' && (
 														<Image
-															source={require(`../../../../../assets/images/Van.png`)}
+															source={require(`@/assets/images/Van.png`)}
 															style={tw`h-16 w-16`}
 															contentFit="contain"
 														/>
-													)}
-													{vehicle.type === '6 Seater' && (
+													)} */}
+													{/* {vehicle.type === '6 Seater' && (
 														<Image
-															source={require(`../../../../../assets/images/6 Seater.png`)}
+															source={require(`@/assets/images/6Seater.png`)}
 															style={tw`h-16 w-16`}
 															contentFit="contain"
 														/>
-													)}
-													{vehicle.type === '4 Seater' && (
+													)} */}
+													{/* {vehicle.type === '4 Seater' && (
 														<Image
-															source={require(`../../../../../assets/images/4 Seater.png`)}
+															source={require(`@/assets/images/4Seater.png`)}
 															style={tw`h-16 w-16`}
 															contentFit="contain"
 														/>
-													)}
+													)} */}
 													<View style={tw`flex flex-col`}>
 														<Text
-															style={tw`font-manropeSemiBold text-sm ${
-																selectedVehicleId === vehicle.id
-																	? 'text-blue'
-																	: 'text-black'
-															}`}
+															style={tw`font-manropeSemiBold text-sm ${selectedVehicleId === vehicle.id
+																? 'text-blue'
+																: 'text-black'
+																}`}
 														>
 															{vehicle.type}
 														</Text>
@@ -449,15 +447,15 @@ export default function Map() {
 											style={tw`flex flex-col justify-end items-center flex-1`}
 										>
 											<Image
-												source={require('../../../../../assets/images/shadow.png')}
+												source={require('@/assets/images/shadow.png')}
 												style={tw`w-34 h-12 absolute bottom-2`}
 												contentFit="contain"
 											/>
-											<Image
-												source={require('../../../../../assets/images/Van.png')}
+											{/* <Image
+												source={require('@/assets/images/Van.png')}
 												style={tw`h-24 w-24 `}
 												contentFit="contain"
-											/>
+											/> */}
 										</View>
 									</View>
 									<FullRoundedButton
@@ -488,11 +486,11 @@ export default function Map() {
 											<View
 												style={tw`flex items-center justify-center w-18 h-18 bg-white border-2 border-blue rounded-full`}
 											>
-												<Image
-													source={require('../../../../../assets/images/profile photo.jpg')}
+												{/* <Image
+													source={require('@/assets/images/profile photo.jpg')}
 													style={tw`w-15 h-15 rounded-full`}
 													contentFit="cover"
-												/>
+												/> */}
 											</View>
 											<View style={tw`flex flex-col ml-4`}>
 												<Text style={tw`text-base font-manropeBold`}>
