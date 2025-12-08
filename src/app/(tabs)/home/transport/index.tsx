@@ -111,7 +111,7 @@ export default function Index() {
 						style={tw`flex items-center justify-center p-2 bg-white rounded-full shadow-sm`}
 					>
 						<Image
-							source={require('../../../../../assets/images/Van.png')}
+							source={require('../../../../../assets/images/van.png')}
 							style={tw`w-10 h-10`}
 							contentFit="contain"
 						/>

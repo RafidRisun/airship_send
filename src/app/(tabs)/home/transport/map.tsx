@@ -319,7 +319,7 @@ export default function Map() {
 												<View style={tw`flex flex-row items-center gap-4`}>
 													{vehicle.type === 'Van' && (
 														<Image
-															source={require(`../../../../../assets/images/Van.png`)}
+															source={require(`../../../../../assets/images/van.png`)}
 															style={tw`h-16 w-16`}
 															contentFit="contain"
 														/>
@@ -454,7 +454,7 @@ export default function Map() {
 												contentFit="contain"
 											/>
 											<Image
-												source={require('../../../../../assets/images/Van.png')}
+												source={require('../../../../../assets/images/van.png')}
 												style={tw`h-24 w-24 `}
 												contentFit="contain"
 											/>
