@@ -64,7 +64,7 @@ export default function SignIn() {
 									keyboardType="phone-pad"
 									value={values.phone}
 									onChangeText={handleChange('phone')}
-									style={tw`flex-1`}
+									style={tw`flex-1 h-[44px]`}
 									onBlur={() => setFieldTouched('phone')}
 								/>
 							</View>
@@ -80,7 +80,7 @@ export default function SignIn() {
 										placeholder="Password"
 										value={values.password}
 										onChangeText={handleChange('password')}
-										style={tw`flex-1`}
+										style={tw`flex-1 h-[44px]`}
 										secureTextEntry={hidePassword}
 										onBlur={() => setFieldTouched('password')}
 									/>

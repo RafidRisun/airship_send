@@ -58,7 +58,7 @@ export default function Index() {
 										keyboardType="phone-pad"
 										value={values.phone}
 										onChangeText={handleChange('phone')}
-										style={tw`flex-1`}
+										style={tw`flex-1 h-[44px]`}
 										onBlur={() => setFieldTouched('phone')}
 									/>
 								</View>
@@ -75,7 +75,7 @@ export default function Index() {
 										placeholder="Password"
 										value={values.password}
 										onChangeText={handleChange('password')}
-										style={tw`flex-1`}
+										style={tw`flex-1 h-[44px]`}
 										secureTextEntry={hidePassword}
 										onBlur={() => setFieldTouched('password')}
 									/>
@@ -98,7 +98,7 @@ export default function Index() {
 								<FullRoundedButton
 									text="Sign Up"
 									onPress={() => handleSubmit()}
-									// onPress={() => router.push('/auth/sign-in')}
+								// onPress={() => router.push('/auth/sign-in')}
 								/>
 								{/* handleSubmit */}
 								<Text style={tw`font-manropeRegular text-base text-center`}>
