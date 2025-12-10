@@ -488,11 +488,11 @@ export default function Map() {
 											<View
 												style={tw`flex items-center justify-center w-18 h-18 bg-white border-2 border-blue rounded-full`}
 											>
-												{/* <Image
+												<Image
 													source={require('@/assets/images/profile photo.jpg')}
 													style={tw`w-15 h-15 rounded-full`}
 													contentFit="cover"
-												/> */}
+												/>
 											</View>
 											<View style={tw`flex flex-col ml-4`}>
 												<Text style={tw`text-base font-manropeBold`}>
